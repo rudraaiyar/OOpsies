@@ -53,7 +53,13 @@ void App::mouseDrag(float x, float y){
     redraw();
 }
 
-void App::keyPress(unsigned char key, float y) {
+void App::keyPress(unsigned char key) {
+    if (key == 119){//w
+        play1.moveU();
+    }
+    if (key == 115){//s
+        play1.moveD();
+    }
     if (key == 27){
         // Exit the app when Esc key is pressed
         exit(0);

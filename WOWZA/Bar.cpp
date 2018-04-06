@@ -39,11 +39,11 @@ void Bar::draw()
     
 }
 
-void Bar::moveR(float xx)
+void Bar::moveU()
 {
-    xx++;
+    y+=.01;
 }
-void Bar::moveL(float xx)
+void Bar::moveD()
 {
-    xx--;
+    y-=.01;
 }

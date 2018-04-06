@@ -24,9 +24,8 @@ public:
     //contains which checks if in or nah
     bool hit(float xx, float yy);
     void draw();
-    void moveR(float xx);
-    void moveL(float xx);
-
+    void moveU();
+    void moveD();
 };
 
 #endif /* Bar_hpp */

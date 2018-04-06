@@ -13,7 +13,7 @@ public:
     
     // These are the events we want to handle
     void draw();
-    void keyPress(unsigned char key, float y);
+    void keyPress(unsigned char key);
     void mouseDown(float x, float y);
     void mouseDrag(float x, float y);
 };
