@@ -10,11 +10,8 @@
 
 using namespace std;
 
-Bar::Bar(float x1, float y1, float w, float h) {
+Bar::Bar(float x1) {
     x = x1;
-    y = y1;
-    height = h;
-    width = w;
 }
 
 //contains which checks if in or nah
@@ -25,9 +22,9 @@ bool Bar::hit(float xx, float yy)
     else
         return false;
 }
+
 void Bar::draw()
 {
-
     glColor3d(1.0, 0.6, 1.0);
     glBegin(GL_POLYGON);
     glVertex2f(x, y);

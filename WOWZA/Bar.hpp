@@ -16,11 +16,14 @@
 class Bar{
     //four float values
 public:
-    float x,y, width, height;
+    float x;
+    float y =0;
+    float width=.1;
+    float height=.3;
     bool click;
     
 public:
-    Bar(float x1, float y1, float w, float h);
+    Bar(float x1);
     //contains which checks if in or nah
     bool hit(float xx, float yy);
     void draw();

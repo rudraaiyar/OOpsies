@@ -1,8 +1,8 @@
 #include "App.h"
 #include "Bar.hpp"
 
-Bar play1 = *new Bar(-0.8,0.0, 0.1, 0.3);
-Bar play2 = *new Bar(0.8, 0.0, 0.1, 0.3);
+Bar play1 = *new Bar(-0.8);
+Bar play2 = *new Bar(0.8);
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
