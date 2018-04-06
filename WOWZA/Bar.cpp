@@ -41,9 +41,9 @@ void Bar::draw()
 
 void Bar::moveU()
 {
-    y+=.01;
+    y+=.04;
 }
 void Bar::moveD()
 {
-    y-=.01;
+    y-=.04;
 }
