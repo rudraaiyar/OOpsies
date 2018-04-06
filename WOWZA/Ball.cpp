@@ -23,8 +23,8 @@ void Ball::draw()
     for (int j = 0; j < 50;  j++)
     {
         float theta = 2.0f*3.1415926f* float(j) / float(50);
-        float x = 0.25*cosf(theta);
-        float y = 0.25*sinf(theta);
+        float x = 0.05*cosf(theta);
+        float y = 0.05*sinf(theta);
         glVertex3f(x + this->x, y + this->y, -0.1);
     }
     glEnd();

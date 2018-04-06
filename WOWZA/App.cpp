@@ -1,8 +1,11 @@
 #include "App.h"
 #include "Bar.hpp"
+#include "Ball.h"
 
 Bar play1 = *new Bar(-0.8);
 Bar play2 = *new Bar(0.8);
+
+Ball pong = *new Ball;
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
@@ -28,6 +31,9 @@ void App::draw() {
     
     play1.draw();
     play2.draw();
+    
+    pong.draw();
+    
 
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew

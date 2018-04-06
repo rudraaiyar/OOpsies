@@ -6,8 +6,8 @@
 class Ball {
 public:
 	Ball(){}
-	float x;
-	float y;
+	float x =0;
+	float y =0;
     Ball(float x, float y);
     void draw();
 };
