@@ -1,7 +1,8 @@
 #include "App.h"
 #include "Bar.hpp"
 
-Bar play = *new Bar(-.2,-0.8, .3, .1);
+Bar play1 = *new Bar(-0.8,0.0, 0.1, 0.3);
+Bar play2 = *new Bar(0.8, 0.0, 0.1, 0.3);
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
@@ -25,33 +26,9 @@ void App::draw() {
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
     
-    // Draw some points
-    glBegin(GL_POINTS);
-    
-    glVertex2f(0.5, 0.5);
-    glVertex2f(0.5, -0.5);
-    glVertex2f(-0.5, -0.5);
-    glVertex2f(-0.5, 0.5);
-    
-    glEnd();
-    
-    // Draw a yellow cross
-    glColor3d(1.0, 1.0, 0.0);
-    
-    glBegin(GL_LINES);
-    
-    glVertex2f(mx - 0.05f, my);
-    glVertex2f(mx + 0.05f, my);
-    
-    glVertex2f(mx, my - 0.05f);
-    glVertex2f(mx, my + 0.05f);
-    
-    glEnd();
-    
-    
-    /********************************************************/
-    play.draw();
-    
+    play1.draw();
+    play2.draw();
+
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
@@ -76,13 +53,7 @@ void App::mouseDrag(float x, float y){
     redraw();
 }
 
-void App::keyPress(unsigned char key, float x, float y) {
-    if (key == 'a'){
-        //play(x,-0.8, .3, .1);
-    }
-    if (key == 'd'){
-        //play(y,-0.8, .3, .1);
-    }
+void App::keyPress(unsigned char key, float y) {
     if (key == 27){
         // Exit the app when Esc key is pressed
         exit(0);
