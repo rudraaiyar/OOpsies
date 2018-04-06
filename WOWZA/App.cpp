@@ -34,7 +34,6 @@ void App::draw() {
     
     pong.draw();
     
-
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
     glFlush();
