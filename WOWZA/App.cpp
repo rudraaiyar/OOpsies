@@ -10,12 +10,16 @@ Bar play2 = *new Bar(0.8, 0.0,0.3);
 Bar constBar =*new Bar(0.8, .95, 1.9);
 
 Ball pong = *new Ball;
+int AI;
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
     mx = 0.0;
     my = 0.0;
-    
+    cout<< "Single Player: use up and down arrow keys to move bar."<<endl;
+    cout<< "Two Player: player 1 (up and down arrow keys), player 2 (w and s keyboard keys)."<<endl;
+    cout<< "Single or Two Player? (1 or 2)"<<endl;
+    cin>>AI;
 }
 
 void App::draw() {
@@ -33,9 +37,6 @@ void App::draw() {
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
     
-    int AI;
-    cout<< "Single or Two Player? (1 or 2)"<<endl;
-    cin>>AI;
     if (AI==1) {
         play1.draw();
         constBar.draw();
