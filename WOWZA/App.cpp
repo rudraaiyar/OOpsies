@@ -33,14 +33,14 @@ void App::draw() {
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
     
-    int response;
+    int AI;
     cout<< "Single or Two Player? (1 or 2)"<<endl;
-    cin>>response;
-    if (response==1) {
+    cin>>AI;
+    if (AI==1) {
         play1.draw();
         constBar.draw();
         pong.draw();
-    }else if(response ==2){
+    }else if(AI ==2){
         play1.draw();
         play2.draw();
         pong.draw();
