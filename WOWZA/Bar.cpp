@@ -10,8 +10,10 @@
 
 using namespace std;
 
-Bar::Bar(float x1) {
+Bar::Bar(float x1,float y1, float h) {
     x = x1;
+    y = y1;
+    height = h;
 }
 
 //contains which checks if in or nah

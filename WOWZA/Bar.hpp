@@ -17,13 +17,13 @@ class Bar{
     //four float values
 public:
     float x;
-    float y =0;
+    float y;
     float width=.1;
-    float height=.3;
+    float height;
     bool click;
     
 public:
-    Bar(float x1);
+    Bar(float x1,float y1, float h);
     //contains which checks if in or nah
     bool hit(float xx, float yy);
     void draw();
