@@ -1,9 +1,13 @@
 #include "App.h"
 #include "Bar.hpp"
 #include "Ball.h"
+#include <iostream>
 
-Bar play1 = *new Bar(-0.8);
-Bar play2 = *new Bar(0.8);
+using namespace std;
+
+Bar play1 = *new Bar(-0.8, 0.0,0.3);
+Bar play2 = *new Bar(0.8, 0.0,0.3);
+Bar constBar =*new Bar(0.8, .95, 1.9);
 
 Ball pong = *new Ball;
 
@@ -29,10 +33,20 @@ void App::draw() {
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
     
-    play1.draw();
-    play2.draw();
-    
-    pong.draw();
+    int response;
+    cout<< "Single or Two Player? (1 or 2)"<<endl;
+    cin>>response;
+    if (response==1) {
+        play1.draw();
+        constBar.draw();
+        pong.draw();
+    }else if(response ==2){
+        play1.draw();
+        play2.draw();
+        pong.draw();
+    }else{
+        exit(0);
+    }
     
     // We have been drawing everything to the back buffer
     // Swap the buffers to see the result of what we drew
@@ -58,25 +72,33 @@ void App::mouseDrag(float x, float y){
     redraw();
 }
 
+void App::specialKeyPress(int key){
+    switch(key) {
+        case GLUT_KEY_UP:
+             play1.moveU();//key up
+            break;
+        case GLUT_KEY_DOWN:
+             play1.moveD();   // key down
+            break;
+        default:
+              // null
+            break;
+    }
+    redraw();
+}
+
 void App::keyPress(unsigned char key) {
+   
     if (key == 119){//w
-        play1.moveU();
-        redraw();
+        play2.moveU();
     }
     if (key == 115){//s
-        play1.moveD();
-        redraw();
-    }
-    if (key == 105){//i
-        play2.moveU();
-        redraw();
-    }
-    if (key == 107){//k
         play2.moveD();
-        redraw();
     }
+    
     if (key == 27){
         // Exit the app when Esc key is pressed
         exit(0);
     }
+    redraw();
 }
