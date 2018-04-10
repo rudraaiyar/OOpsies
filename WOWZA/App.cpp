@@ -8,18 +8,22 @@ using namespace std;
 Bar play1 = *new Bar(-0.8, 0.0,0.3);
 Bar play2 = *new Bar(0.8, 0.0,0.3);
 Bar constBar =*new Bar(0.8, .95, 1.9);
-
 Ball pong = *new Ball;
+
 int AI;
+int level;
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
     mx = 0.0;
     my = 0.0;
+    
     cout<< "Single Player: use up and down arrow keys to move bar."<<endl;
     cout<< "Two Player: player 1 (up and down arrow keys), player 2 (w and s keyboard keys)."<<endl;
-    cout<< "Single or Two Player? (1 or 2)"<<endl;
+    cout<< "Single or Two Player (1 or 2): ";
     cin>>AI;
+    cout<<"Level (1,2,3): ";
+    cin>>level;
 }
 
 void App::draw() {
@@ -38,15 +42,37 @@ void App::draw() {
     glColor3d(1.0, 1.0, 1.0);
     
     if (AI==1) {
-        play1.draw();
-        constBar.draw();
-        pong.draw();
+        if (level ==1){
+            play1.draw();
+            constBar.draw();
+            pong.draw();
+        }else if(level==2){
+            play1.draw();
+            constBar.draw();
+            pong.draw();
+        }else if(level ==3){
+            play1.draw();
+            constBar.draw();
+            pong.draw();
+        }else{
+            exit(0);
+        }
     }else if(AI ==2){
-        play1.draw();
-        play2.draw();
-        pong.draw();
-    }else{
-        exit(0);
+        if (level ==1){
+            play1.draw();
+            play2.draw();
+            pong.draw();
+        }else if(level==2){
+            play1.draw();
+            play2.draw();
+            pong.draw();
+        }else if(level ==3){
+            play1.draw();
+            play2.draw();
+            pong.draw();
+        }else{
+            exit(0);
+        }
     }
     
     // We have been drawing everything to the back buffer
