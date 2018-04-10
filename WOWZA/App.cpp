@@ -8,7 +8,7 @@ using namespace std;
 Bar play1 = *new Bar(-0.8, 0.0,0.3);
 Bar play2 = *new Bar(0.8, 0.0,0.3);
 Bar constBar =*new Bar(0.8, .95, 1.9);
-Ball pong = *new Ball;
+Ball pong = *new Ball(0);
 
 int AI;
 int level;

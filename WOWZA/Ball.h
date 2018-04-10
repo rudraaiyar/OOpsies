@@ -5,7 +5,9 @@
 
 class Ball {
 public:
-	Ball(){}
+    int speed;
+public:
+    Ball(int speed){}
 	float x =0;
 	float y =0;
     Ball(float x, float y);
