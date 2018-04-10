@@ -40,9 +40,14 @@ void Bar::draw()
 
 void Bar::moveU()
 {
-    y+=.04;
+    if (y>=1.0)
+        y+=0;
+    else y+=.04;
 }
+
 void Bar::moveD()
 {
-    y-=.04;
+    if (y-height<= -1.0)
+        y-=0;
+    else y-=.04;
 }
