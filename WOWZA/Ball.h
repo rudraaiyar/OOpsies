@@ -1,29 +1,23 @@
 #ifndef Ball_h
 #define Ball_h
 
-#include <math.h>
 
 class Ball {
-public:
     int speed;
+    float xPos;
+    float yPos;
+    float vel;
+    float velX;
+    float velY;
+    float angle;
+
+
 public:
-    Ball(int speed){}
-	float x =0;
-	float y =0;
-    Ball(float x, float y);
+    Ball(int speed);
+    void setVel();
+    void moveBall();
+    void collisionCheck();
     void draw();
 };
 
-#endif 
-
-
-
-
-
-
-
-
-
-
-
-
+#endif
