@@ -17,7 +17,7 @@ using namespace std;
 Ball::Ball(int speed){
   xPos=0;
   yPos=(rand() % 100)/100.0;
-  vel=((speed * 0.1) + 0.09);
+  vel=((speed * 0.1) + 0.04);
   //generates radom angle
   do{
     angle=(rand() % 36000)/100.0;
@@ -29,7 +29,7 @@ Ball::Ball(int speed){
 
 }
 void Ball::setSpeed(){
-  vel=(speed * 0.02)+0.01;
+  vel=(speed * 0.02)+0.04;
 }
 //Ball(float x, float y);
 void Ball::setVel(){

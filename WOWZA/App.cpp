@@ -112,6 +112,11 @@ void App::specialKeyPress(int key){
     }
     redraw();
 }
+//This funciton is called all the time, which is why ball is able to move 
+void App::idle(){
+  //pong.draw();
+  draw();
+}
 
 void App::keyPress(unsigned char key) {
 

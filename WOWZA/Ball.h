@@ -13,7 +13,7 @@ class Ball {
 
 
 public:
-    Ball(int speed);
+    Ball(int);
     void setVel();
     void setSpeed();
     void moveBall();
