@@ -17,14 +17,18 @@ using namespace std;
 Ball::Ball(int speed){
   xPos=0;
   yPos=(rand() % 100)/100.0;
-  vel=(speed * 0.2) + 0.01;
+  vel=((speed * 0.1) + 0.09);
   //generates radom angle
   do{
     angle=(rand() % 36000)/100.0;
   }while(angle == 0 || angle == 90 || angle == 180 || angle == 360);
+  cout<<"speed "<<speed<<" angle "<<angle<<endl;
+  velX=vel*cosf((angle * PI /180.0));
+  velY=vel*sinf((angle * PI /180.0));
+  cout<<"vel, velX velY "<< vel<<" "<<velX<<" "<<velY<<endl;
 
 }
-void setSpeed(){
+void Ball::setSpeed(){
   vel=(speed * 0.02)+0.01;
 }
 //Ball(float x, float y);
@@ -49,14 +53,17 @@ void Ball::collisionCheck(){
 void Ball::draw()
 {
     glColor3d(1.0, 1.0, 0.0);
+        glBegin(GL_LINE_LOOP);
+        for (int j = 0; j < 50;  j++)
+        {
+            float theta = 2.0f*3.1415926f* float(j) / float(50);
+            float x = 0.05*cosf(theta);
+            float y = 0.05*sinf(theta);
+            glVertex3f(x + xPos, y + yPos, -0.1);
+        }
+        glEnd();
+        moveBall();
+        collisionCheck();
 
-    glBegin(GL_LINE_LOOP);
-    for (int j = 0; j < 50;  j++)
-    {
-        float theta = 2.0f*3.1415926f* float(j) / float(50);
-        float x = 0.05*cosf(theta);
-        float y = 0.05*sinf(theta);
-        glVertex3f(x + xPos, y + yPos, -0.1);
-    }
 
 }

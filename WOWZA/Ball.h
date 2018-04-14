@@ -15,6 +15,7 @@ class Ball {
 public:
     Ball(int speed);
     void setVel();
+    void setSpeed();
     void moveBall();
     void collisionCheck();
     void draw();
