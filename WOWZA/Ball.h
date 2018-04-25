@@ -17,8 +17,11 @@ public:
     void setVel();
     void setSpeed();
     void moveBall();
-    void collisionCheck();
     void draw();
+    float getXPos() const;
+    float getYPos()const;
+    void flipXVel();
+    void flipYVel();
 };
 
 #endif

@@ -21,7 +21,7 @@ public:
     float width=.1;
     float height;
     bool click;
-    
+
 public:
     Bar(float x1,float y1, float h);
     //contains which checks if in or nah
@@ -29,6 +29,10 @@ public:
     void draw();
     void moveU();
     void moveD();
+    float getY() const;
+    float getWidth() const;
+    float getHeight() const;
+    bool contains(float, float);
 };
 
 #endif /* Bar_hpp */

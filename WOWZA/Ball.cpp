@@ -40,15 +40,6 @@ void Ball::moveBall(){
     xPos+=velX;
     yPos+=velY;
 }
-//This method will flip the velocity if there is a collision
-void Ball::collisionCheck(){
-    if(xPos >=1 || xPos<=-1){
-        velX*=-1;
-    }
-    else if(yPos >=1 || yPos<=-1){
-        velY*=-1;
-    }
-}
 
 void Ball::draw()
 {
@@ -63,7 +54,18 @@ void Ball::draw()
         }
         glEnd();
         moveBall();
-        collisionCheck();
+        //collisionCheck();
+}
 
-
+float Ball::getXPos() const{
+  return xPos;
+}
+float Ball::getYPos()const{
+  return yPos;
+}
+void Ball::flipXVel(){
+  velX*=-1;
+}
+void Ball::flipYVel(){
+  velY*=-1;
 }

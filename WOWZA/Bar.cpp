@@ -33,9 +33,9 @@ void Bar::draw()
     glVertex2f(x+width, y);
     glVertex2f(x+width, y-height);
     glVertex2f(x, y-height);
-    
+
     glEnd();
-    
+
 }
 
 void Bar::moveU()
@@ -50,4 +50,21 @@ void Bar::moveD()
     if (y-height<= -1.0)
         y-=0;
     else y-=.04;
+}
+float Bar::getY() const{
+  return y;
+}
+float Bar::getWidth() const{
+  return width;
+}
+float Bar::getHeight() const{
+  return height;
+}
+bool Bar::contains(float mx,float my){
+  if( mx >= x && mx <= x+width && my <= y && my >= y - height){
+      return true;
+  }
+  else{
+    return false;
+  }
 }

@@ -2,7 +2,7 @@
 #define App_hpp
 
 #include "GlutApp.h"
-
+#include "game.h"
 class App: public GlutApp {
     // Maintain app state here
     float mx;
@@ -10,6 +10,9 @@ class App: public GlutApp {
 public:
     // Constructor, to initialize state
     App(const char* label, int x, int y, int w, int h);
+    game* g;
+    int AI;
+    int level;
 
     // These are the events we want to handle
     void draw();
