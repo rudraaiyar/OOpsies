@@ -42,12 +42,12 @@ void Bar::moveU()
 {
     if (y>=1.0)
         y+=0;
-    else y+=.04;
+    else y+=.06;
 }
 
 void Bar::moveD()
 {
     if (y-height<= -1.0)
         y-=0;
-    else y-=.04;
+    else y-=.06;
 }
