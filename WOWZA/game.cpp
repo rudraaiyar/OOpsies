@@ -78,12 +78,7 @@ void game::collisionCheck(){
 }
 void game::movePlay1(int key){
   if(key == GLUT_KEY_UP){
-<<<<<<< HEAD
-    play1->moveU();
-
-=======
     play2->moveU();
->>>>>>> 02e2844c40c3555e4ba3fa0ca11d3a93990ed0d1
   }
   else if(key == GLUT_KEY_DOWN){
     play2->moveD();
