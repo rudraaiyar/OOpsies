@@ -20,12 +20,10 @@ public:
     float y;
     float width=.1;
     float height;
-    bool click;
 
 public:
     Bar(float x1,float y1, float h);
     //contains which checks if in or nah
-    bool hit(float xx, float yy);
     void draw();
     void moveU();
     void moveD();

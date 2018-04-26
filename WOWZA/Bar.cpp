@@ -16,14 +16,6 @@ Bar::Bar(float x1,float y1, float h) {
     height = h;
 }
 
-//contains which checks if in or nah
-bool Bar::hit(float xx, float yy)
-{
-    if (xx >= x && xx <= x + width && yy <= y && yy >= y - height)
-        return true;
-    else
-        return false;
-}
 
 void Bar::draw()
 {
