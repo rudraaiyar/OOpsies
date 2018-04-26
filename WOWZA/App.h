@@ -3,6 +3,8 @@
 
 #include "GlutApp.h"
 #include "game.h"
+//#include "TexRect.h"
+
 class App: public GlutApp {
     // Maintain app state here
     float mx;
@@ -21,6 +23,9 @@ public:
     void mouseDown(float x, float y);
     void mouseDrag(float x, float y);
     void specialKeyPress(int key);
+
+    //TexRect* bg;
+
 
 };
 

@@ -27,7 +27,7 @@ bool Bar::hit(float xx, float yy)
 
 void Bar::draw()
 {
-    glColor3d(1.0, 0.6, 1.0);
+    glColor3d(1.0, 1.0, 1.0);
     glBegin(GL_POLYGON);
     glVertex2f(x, y);
     glVertex2f(x+width, y);
@@ -42,14 +42,14 @@ void Bar::moveU()
 {
     if (y>=1.0)
         y+=0;
-    else y+=.04;
+    else y+=.06;
 }
 
 void Bar::moveD()
 {
     if (y-height<= -1.0)
         y-=0;
-    else y-=.04;
+    else y-=.06;
 }
 float Bar::getY() const{
   return y;

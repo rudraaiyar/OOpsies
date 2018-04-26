@@ -1,6 +1,8 @@
 #ifndef Ball_h
 #define Ball_h
 
+//#include "TexRect.h"
+#include "GlutApp.h"
 
 class Ball {
     int speed;

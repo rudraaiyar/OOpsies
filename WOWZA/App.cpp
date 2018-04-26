@@ -23,6 +23,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     cout<<"Level (1,2,3): ";
     cin>>level;
     g=new game(AI, level);
+    //bg = new TexRect("pg.bmp", 1, 1, -1.0, 1.0, 2, 2);
 }
 
 void App::draw() {
