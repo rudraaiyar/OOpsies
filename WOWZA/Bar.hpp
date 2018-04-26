@@ -11,13 +11,11 @@
 
 #include <stdio.h>
 #include <iostream>
+#include "shape.h"
 
-
-class Bar{
+class Bar : public shape{
     //four float values
 public:
-    float x;
-    float y;
     float width=.1;
     float height;
     bool click;
@@ -29,7 +27,6 @@ public:
     void draw();
     void moveU();
     void moveD();
-    float getY() const;
     float getWidth() const;
     float getHeight() const;
     bool contains(float, float);

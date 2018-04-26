@@ -45,7 +45,7 @@ void game::draw(){
   }else if(AI ==2){
       if (level ==1){
           play1->draw();
-          //play2->draw();
+          play2->draw();
           pong->draw();
       }else if(level==2){
           play1->draw();
@@ -78,17 +78,17 @@ void game::collisionCheck(){
 }
 void game::movePlay1(int key){
   if(key == GLUT_KEY_UP){
-    play1->moveU();
+    play2->moveU();
   }
   else if(key == GLUT_KEY_DOWN){
-    play1->moveD();
+    play2->moveD();
   }
 }
 void game::movePlay2(unsigned char key){
   if(key == 119){
-    play2->moveU();
+    play1->moveU();
   }
   else if(key == 115){
-    play2->moveD();
+    play1->moveD();
   }
 }
