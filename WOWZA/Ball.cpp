@@ -14,6 +14,7 @@
 #include<iostream>
 using namespace std;
 
+
 Ball::Ball(int speed){
   xPos=0;
   yPos=(rand() % 100)/100.0;
@@ -26,7 +27,7 @@ Ball::Ball(int speed){
   velX=vel*cosf((angle * PI /180.0));
   velY=vel*sinf((angle * PI /180.0));
   cout<<"vel, velX velY "<< vel<<" "<<velX<<" "<<velY<<endl;
-
+    
 }
 void Ball::setSpeed(){
   vel=(speed * 0.02)+0.04;

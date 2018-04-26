@@ -75,11 +75,11 @@
 				F7C9006D2077454F0082C9EC /* Ball.cpp */,
 				1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
 				1799B7E41E5E3A83006D7CBD /* GlutApp.h */,
-				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				F71A173C20914737003CE4AD /* TexRect.cpp */,
 				F71A173E2091473D003CE4AD /* TexRect.h */,
 				F71A173F20914790003CE4AD /* RgbImage.cpp */,
 				F71A174120914795003CE4AD /* RgbImage.h */,
+				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				173FEF021AA63A07006CCB85 /* Products */,
 			);
 			sourceTree = "<group>";
