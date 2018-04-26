@@ -12,7 +12,7 @@ game::game(int AI, int level){
   play1 = new Bar(-0.95, 0.0,0.3);
   play2 = new Bar(0.8, 0.0,0.3);
   constBar = new Bar(0.9, .95, 1.9);
-  pong = new Ball(0);
+  pong = new Ball(level);
   this->AI=AI;
   this->level=level;
 }
@@ -78,18 +78,22 @@ void game::collisionCheck(){
 }
 void game::movePlay1(int key){
   if(key == GLUT_KEY_UP){
+<<<<<<< HEAD
     play1->moveU();
 
+=======
+    play2->moveU();
+>>>>>>> 02e2844c40c3555e4ba3fa0ca11d3a93990ed0d1
   }
   else if(key == GLUT_KEY_DOWN){
-    play1->moveD();
+    play2->moveD();
   }
 }
 void game::movePlay2(unsigned char key){
   if(key == 119){
-    play2->moveU();
+    play1->moveU();
   }
   else if(key == 115){
-    play2->moveD();
+    play1->moveD();
   }
 }

@@ -1,4 +1,4 @@
-#if defined WIN32
+  #if defined WIN32
 #include <freeglut.h>
 #elif defined __APPLE__
 #include <GLUT/glut.h>
@@ -43,9 +43,7 @@ void Bar::moveD()
         y-=0;
     else y-=.18;
 }
-float Bar::getY() const{
-  return y;
-}
+
 float Bar::getWidth() const{
   return width;
 }

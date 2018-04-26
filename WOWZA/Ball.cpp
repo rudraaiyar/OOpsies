@@ -16,9 +16,10 @@ using namespace std;
 
 
 Ball::Ball(int speed){
-  xPos=0;
-  yPos=(rand() % 100)/100.0;
-  vel=((speed * 0.1) + 0.04);
+  x=0;
+  y=((rand() % 100)/100.0);
+  //yPos=(rand() % 100)/100.0;
+  vel=((speed * 0.01) + 0.02);
   //generates radom angle
   do{
     angle=(rand() % 36000)/100.0;
@@ -27,6 +28,7 @@ Ball::Ball(int speed){
   velX=vel*cosf((angle * PI /180.0));
   velY=vel*sinf((angle * PI /180.0));
   cout<<"vel, velX velY "<< vel<<" "<<velX<<" "<<velY<<endl;
+
 }
 void Ball::setSpeed(){
   vel=(speed * 0.02)+0.04;
@@ -37,8 +39,8 @@ void Ball::setVel(){
     velX=vel*sin((angle * PI /180.0));
 }
 void Ball::moveBall(){
-    xPos+=velX;
-    yPos+=velY;
+    x+=velX;
+    y+=velY;
 }
 
 void Ball::draw()
@@ -50,18 +52,11 @@ void Ball::draw()
             float theta = 2.0f*3.1415926f* float(j) / float(50);
             float x = 0.05*cosf(theta);
             float y = 0.05*sinf(theta);
-            glVertex3f(x + xPos, y + yPos, -0.1);
+            glVertex3f(x + this->x, y + this->y, -0.1);
         }
         glEnd();
         moveBall();
         //collisionCheck();
-}
-
-float Ball::getXPos() const{
-  return xPos;
-}
-float Ball::getYPos()const{
-  return yPos;
 }
 void Ball::flipXVel(){
   velX*=-1;

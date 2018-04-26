@@ -3,11 +3,10 @@
 
 //#include "TexRect.h"
 #include "GlutApp.h"
+#include "shape.h"
 
-class Ball {
+class Ball: public shape {
     int speed;
-    float xPos;
-    float yPos;
     float vel;
     float velX;
     float velY;
@@ -20,8 +19,6 @@ public:
     void setSpeed();
     void moveBall();
     void draw();
-    float getXPos() const;
-    float getYPos()const;
     void flipXVel();
     void flipYVel();
 };
