@@ -27,7 +27,7 @@ bool Bar::hit(float xx, float yy)
 
 void Bar::draw()
 {
-    glColor3d(1.0, 0.6, 1.0);
+    glColor3d(1.0, 1.0, 1.0);
     glBegin(GL_POLYGON);
     glVertex2f(x, y);
     glVertex2f(x+width, y);

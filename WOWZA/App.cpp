@@ -24,6 +24,9 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     cin>>AI;
     cout<<"Level (1,2,3): ";
     cin>>level;
+    
+    bg = new TexRect("pg.bmp", 1, 1, -1.0, 1.0, 2, 2);
+
 }
 
 void App::draw() {
@@ -40,6 +43,14 @@ void App::draw() {
 
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
+    
+    glDisable(GL_DEPTH_TEST);
+
+    bg->draw();
+    
+    glEnable(GL_DEPTH_TEST);
+
+
     if (AI==1) {
         if (level ==1){
             play1.draw();
@@ -72,6 +83,7 @@ void App::draw() {
         }else{
             exit(0);
         }
+        
     }
 
     // We have been drawing everything to the back buffer
