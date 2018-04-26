@@ -15,5 +15,4 @@ public:
   float getYPos()const;
 };
 
-
 #endif

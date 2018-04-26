@@ -19,7 +19,7 @@ Ball::Ball(int speed){
   x=0;
   y=((rand() % 100)/100.0);
   //yPos=(rand() % 100)/100.0;
-  vel=((speed * 0.1) + 0.04);
+  vel=((speed * 0.01) + 0.02);
   //generates radom angle
   do{
     angle=(rand() % 36000)/100.0;

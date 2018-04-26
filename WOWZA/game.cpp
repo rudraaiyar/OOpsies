@@ -12,7 +12,7 @@ game::game(int AI, int level){
   play1 = new Bar(-0.95, 0.0,0.3);
   play2 = new Bar(0.8, 0.0,0.3);
   constBar = new Bar(0.9, .95, 1.9);
-  pong = new Ball(0);
+  pong = new Ball(level);
   this->AI=AI;
   this->level=level;
 }
