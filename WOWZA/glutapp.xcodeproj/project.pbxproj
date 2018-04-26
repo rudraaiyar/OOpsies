@@ -12,10 +12,9 @@
 		173FEF181AA63B22006CCB85 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 173FEF171AA63B22006CCB85 /* GLUT.framework */; };
 		1799B7E51E5E3A83006D7CBD /* GlutApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		1799B7E81E5ECD67006D7CBD /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1799B7E61E5ECD67006D7CBD /* App.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
-		F71A173D20914737003CE4AD /* TexRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F71A173C20914737003CE4AD /* TexRect.cpp */; };
-		F71A174020914790003CE4AD /* RgbImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F71A173F20914790003CE4AD /* RgbImage.cpp */; };
 		F79CDF86205DF6FB004266BB /* Bar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F79CDF84205DF6FB004266BB /* Bar.cpp */; };
 		F7C9006E2077454F0082C9EC /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C9006D2077454F0082C9EC /* Ball.cpp */; };
+		F7CA465C20923A7E00A2E95C /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7CA465B20923A7E00A2E95C /* game.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,14 +38,12 @@
 		1799B7E41E5E3A83006D7CBD /* GlutApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlutApp.h; sourceTree = "<group>"; };
 		1799B7E61E5ECD67006D7CBD /* App.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = App.cpp; sourceTree = "<group>"; };
 		1799B7E71E5ECD67006D7CBD /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
-		F71A173C20914737003CE4AD /* TexRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TexRect.cpp; sourceTree = "<group>"; };
-		F71A173E2091473D003CE4AD /* TexRect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TexRect.h; sourceTree = "<group>"; };
-		F71A173F20914790003CE4AD /* RgbImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RgbImage.cpp; sourceTree = "<group>"; };
-		F71A174120914795003CE4AD /* RgbImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RgbImage.h; sourceTree = "<group>"; };
 		F79CDF84205DF6FB004266BB /* Bar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bar.cpp; sourceTree = "<group>"; };
 		F79CDF85205DF6FB004266BB /* Bar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bar.hpp; sourceTree = "<group>"; };
 		F7C9006C207744C30082C9EC /* Ball.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		F7C9006D2077454F0082C9EC /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
+		F7CA465A20923A7700A2E95C /* game.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = game.h; sourceTree = "<group>"; };
+		F7CA465B20923A7E00A2E95C /* game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = game.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,12 +70,10 @@
 				F79CDF85205DF6FB004266BB /* Bar.hpp */,
 				F7C9006C207744C30082C9EC /* Ball.h */,
 				F7C9006D2077454F0082C9EC /* Ball.cpp */,
+				F7CA465A20923A7700A2E95C /* game.h */,
+				F7CA465B20923A7E00A2E95C /* game.cpp */,
 				1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */,
 				1799B7E41E5E3A83006D7CBD /* GlutApp.h */,
-				F71A173C20914737003CE4AD /* TexRect.cpp */,
-				F71A173E2091473D003CE4AD /* TexRect.h */,
-				F71A173F20914790003CE4AD /* RgbImage.cpp */,
-				F71A174120914795003CE4AD /* RgbImage.h */,
 				173FEF0B1AA63AC4006CCB85 /* app_main.cpp */,
 				173FEF021AA63A07006CCB85 /* Products */,
 			);
@@ -150,11 +145,10 @@
 			files = (
 				1799B7E81E5ECD67006D7CBD /* App.cpp in Sources */,
 				F79CDF86205DF6FB004266BB /* Bar.cpp in Sources */,
-				F71A174020914790003CE4AD /* RgbImage.cpp in Sources */,
 				173FEF0C1AA63AC4006CCB85 /* app_main.cpp in Sources */,
 				1799B7E51E5E3A83006D7CBD /* GlutApp.cpp in Sources */,
 				F7C9006E2077454F0082C9EC /* Ball.cpp in Sources */,
-				F71A173D20914737003CE4AD /* TexRect.cpp in Sources */,
+				F7CA465C20923A7E00A2E95C /* game.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
