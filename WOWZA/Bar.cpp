@@ -14,9 +14,12 @@ Bar::Bar(float x1,float y1, float h) {
     x = x1;
     y = y1;
     height = h;
+    score=0;
 }
 
-
+void Bar::updateScore(){
+  score++;
+}
 void Bar::draw()
 {
     glColor3d(1.0, 1.0, 1.0);
@@ -50,8 +53,11 @@ float Bar::getWidth() const{
 float Bar::getHeight() const{
   return height;
 }
+int Bar::getScore() const{
+  return score;
+}
 bool Bar::contains(float mx,float my){
-  if( mx >= x && mx <= x+width && my <= y && my >= y - height){
+  if((mx >= x && mx <= x+width) && (my <= y && my >= y - height)){
       return true;
   }
   else{

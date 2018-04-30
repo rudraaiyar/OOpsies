@@ -16,18 +16,13 @@ using namespace std;
 
 
 Ball::Ball(int speed){
-  x=0;
-  y=((rand() % 100)/100.0);
-  //yPos=(rand() % 100)/100.0;
+  resetBall();
   vel=((speed * 0.01) + 0.02);
-  //generates radom angle
-  do{
-    angle=(rand() % 36000)/100.0;
-  }while(angle == 0 || angle == 90 || angle == 180 || angle == 360);
   cout<<"speed "<<speed<<" angle "<<angle<<endl;
   velX=vel*cosf((angle * PI /180.0));
   velY=vel*sinf((angle * PI /180.0));
   cout<<"vel, velX velY "<< vel<<" "<<velX<<" "<<velY<<endl;
+  std::cout<<"finished"<<std::endl;
 
 }
 void Ball::setSpeed(){
@@ -41,6 +36,17 @@ void Ball::setVel(){
 void Ball::moveBall(){
     x+=velX;
     y+=velY;
+}
+int Ball::getSpeed() const{
+  return speed;
+}
+void Ball::resetBall(){
+  x=0;
+  y=((rand() % 100)/100.0);
+  //generates radom angle
+  do{
+    angle=(rand() % 36000)/100.0;
+  }while(angle == 0 || angle == 90 || angle == 180 || angle == 360);
 }
 
 void Ball::draw()

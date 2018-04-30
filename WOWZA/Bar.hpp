@@ -18,15 +18,18 @@ class Bar : public shape{
 public:
     float width=.1;
     float height;
+    int score;
 
 public:
     Bar(float x1,float y1, float h);
     //contains which checks if in or nah
+    void updateScore();
     void draw();
     void moveU();
     void moveD();
     float getWidth() const;
     float getHeight() const;
+    int getScore() const;
     bool contains(float, float);
 };
 

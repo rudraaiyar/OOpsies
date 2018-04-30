@@ -18,6 +18,8 @@ public:
     void setVel();
     void setSpeed();
     void moveBall();
+    int getSpeed() const;
+    void resetBall();
     void draw();
     void flipXVel();
     void flipYVel();
