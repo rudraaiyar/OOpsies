@@ -36,6 +36,8 @@ game::~game(){
 
 //calls all the appropriate draw functions
 void game::draw(){
+  play1->draw();
+  if(AI==1){}
   if (AI==1) {
       if (level ==1){
           play1->draw();
@@ -87,8 +89,10 @@ void game::collisionCheck(){
       pong->flipXVel();
   }
 */
-  else if(pong->getXPos() >=1 && AI==2){
-    play2->updateScore();
+  else if(pong->getXPos() >=1 ){
+    if(AI==2){
+      play2->updateScore();
+    }
     pong->resetBall();
   }
   else if(pong->getXPos() <=-1){

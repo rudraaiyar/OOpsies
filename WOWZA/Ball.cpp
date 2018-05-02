@@ -47,6 +47,7 @@ void Ball::resetBall(){
   do{
     angle=(rand() % 36000)/100.0;
   }while(angle == 0 || angle == 90 || angle == 180 || angle == 360);
+  flipXVel();
 }
 
 void Ball::draw()
