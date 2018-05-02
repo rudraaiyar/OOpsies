@@ -13,6 +13,7 @@ public:
   void setYPos(float);
   float getXPos()const;
   float getYPos()const;
+  virtual void draw()=0;
 };
 
 #endif
