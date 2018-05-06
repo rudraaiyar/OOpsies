@@ -13,8 +13,6 @@
 		1799B7E51E5E3A83006D7CBD /* GlutApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1799B7E31E5E3A83006D7CBD /* GlutApp.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		1799B7E81E5ECD67006D7CBD /* App.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1799B7E61E5ECD67006D7CBD /* App.cpp */; settings = {COMPILER_FLAGS = "-w"; }; };
 		D82186A9209F7F720014ECB1 /* shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D82186A7209F7F720014ECB1 /* shape.cpp */; };
-		D82186AE209F7FB70014ECB1 /* AnimatedRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D82186AA209F7FB60014ECB1 /* AnimatedRect.cpp */; };
-		D82186AF209F7FB70014ECB1 /* TexRect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D82186AB209F7FB60014ECB1 /* TexRect.cpp */; };
 		F79CDF86205DF6FB004266BB /* Bar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F79CDF84205DF6FB004266BB /* Bar.cpp */; };
 		F7C9006E2077454F0082C9EC /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C9006D2077454F0082C9EC /* Ball.cpp */; };
 		F7CA465C20923A7E00A2E95C /* game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7CA465B20923A7E00A2E95C /* game.cpp */; };
@@ -43,10 +41,6 @@
 		1799B7E71E5ECD67006D7CBD /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
 		D82186A7209F7F720014ECB1 /* shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shape.cpp; sourceTree = "<group>"; };
 		D82186A8209F7F720014ECB1 /* shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shape.h; sourceTree = "<group>"; };
-		D82186AA209F7FB60014ECB1 /* AnimatedRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedRect.cpp; sourceTree = "<group>"; };
-		D82186AB209F7FB60014ECB1 /* TexRect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TexRect.cpp; sourceTree = "<group>"; };
-		D82186AC209F7FB60014ECB1 /* AnimatedRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimatedRect.h; sourceTree = "<group>"; };
-		D82186AD209F7FB60014ECB1 /* TexRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TexRect.h; sourceTree = "<group>"; };
 		F79CDF84205DF6FB004266BB /* Bar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bar.cpp; sourceTree = "<group>"; };
 		F79CDF85205DF6FB004266BB /* Bar.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bar.hpp; sourceTree = "<group>"; };
 		F7C9006C207744C30082C9EC /* Ball.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
@@ -76,10 +70,6 @@
 				1799B7E61E5ECD67006D7CBD /* App.cpp */,
 				1799B7E71E5ECD67006D7CBD /* App.h */,
 				F79CDF84205DF6FB004266BB /* Bar.cpp */,
-				D82186AB209F7FB60014ECB1 /* TexRect.cpp */,
-				D82186AD209F7FB60014ECB1 /* TexRect.h */,
-				D82186AA209F7FB60014ECB1 /* AnimatedRect.cpp */,
-				D82186AC209F7FB60014ECB1 /* AnimatedRect.h */,
 				F79CDF85205DF6FB004266BB /* Bar.hpp */,
 				F7C9006C207744C30082C9EC /* Ball.h */,
 				F7C9006D2077454F0082C9EC /* Ball.cpp */,
@@ -160,10 +150,8 @@
 			files = (
 				1799B7E81E5ECD67006D7CBD /* App.cpp in Sources */,
 				F79CDF86205DF6FB004266BB /* Bar.cpp in Sources */,
-				D82186AE209F7FB70014ECB1 /* AnimatedRect.cpp in Sources */,
 				173FEF0C1AA63AC4006CCB85 /* app_main.cpp in Sources */,
 				1799B7E51E5E3A83006D7CBD /* GlutApp.cpp in Sources */,
-				D82186AF209F7FB70014ECB1 /* TexRect.cpp in Sources */,
 				F7C9006E2077454F0082C9EC /* Ball.cpp in Sources */,
 				D82186A9209F7F720014ECB1 /* shape.cpp in Sources */,
 				F7CA465C20923A7E00A2E95C /* game.cpp in Sources */,
