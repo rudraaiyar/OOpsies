@@ -19,6 +19,8 @@ public:
     void collisionCheck();
     void movePlay1(int key);
     void movePlay2(unsigned char key);
+    void autoPlay2Move();
+    void endGame();
 };
 
 

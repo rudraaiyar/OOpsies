@@ -17,7 +17,8 @@ game::game(int AI, int level){
     play2 = new Bar(0.8, 0.0,0.3);
   }
   else if(AI==1){
-    constBar = new Bar(0.9, 1, 2);
+    //0.9,1,2
+    constBar = new Bar(0.8, 0.0, 0.3);
   }
   pong = new Ball(level);
   this->AI=AI;
@@ -34,45 +35,23 @@ game::~game(){
   delete pong;
 }
 
+void timer(int value){
+  if(value == 100 || value == 75 || value==20){
+    glutTimerFunc(value,timer,0);
+  }
+  return;
+}
+
 //calls all the appropriate draw functions
 void game::draw(){
   play1->draw();
-  if(AI==1){}
   if (AI==1) {
-      if (level ==1){
-          play1->draw();
-          constBar->draw();
-          pong->draw();
-      }else if(level==2){
-          play1->draw();
-          constBar->draw();
-          pong->draw();
-      }else if(level ==3){
-          play1->draw();
-          constBar->draw();
-          pong->draw();
-      }
-      else{
-          exit(0);
-      }
+    this->autoPlay2Move();
+    constBar->draw();
   }else if(AI ==2){
-      if (level ==1){
-          play1->draw();
-          play2->draw();
-          pong->draw();
-      }else if(level==2){
-          play1->draw();
-          play2->draw();
-          pong->draw();
-      }else if(level ==3){
-          play1->draw();
-          play2->draw();
-          pong->draw();
-      }
-      else{
-          exit(0);
-      }
+    play2->draw();
   }
+  pong->draw();
   //since ball will always be called we do a collisionCheck at the end
   collisionCheck();
 }
@@ -89,18 +68,25 @@ void game::collisionCheck(){
       pong->flipXVel();
   }
 */
-  else if(pong->getXPos() >=1 ){
+  else if(pong->getXPos() <=-1 ){
     if(AI==2){
       play2->updateScore();
+      endGame();
     }
+    else if(AI==1){
+      constBar->updateScore();
+      endGame();
+    }
+
     pong->resetBall();
   }
-  else if(pong->getXPos() <=-1){
+  else if(pong->getXPos() >=1){
     play1->updateScore();
+    endGame();
     pong->resetBall();
   }
 
-  if(pong->getYPos() >=1 || pong->getYPos()<=-1){
+  else if(pong->getYPos() >=1 || pong->getYPos()<=-1){
       pong->flipYVel();
   }
 }
@@ -118,5 +104,31 @@ void game::movePlay2(unsigned char key){
   }
   else if(key == 115){
     play1->moveD();
+  }
+}
+void game::autoPlay2Move(){
+  if(constBar->getYPos()-constBar->getHeight() > pong->getYPos()){
+    constBar->moveD();
+  }
+  else if(constBar->getYPos() < pong->getYPos()){
+    constBar->moveU();
+  }
+}
+//TODO::Add some end game screen
+void game::endGame(){
+  if(AI==1 && constBar->getScore()==3){
+    std::cout<<"Player 2 won"<<std::endl;
+    this->~game();
+    exit(0);
+  }
+  else if(AI ==2 && play2->getScore()==3){
+    std::cout<<"Player 2 won"<<std::endl;
+    this->~game();
+    exit(0);
+  }
+  else if(play1->getScore()==3){
+    std::cout<<"Player 1 won"<<std::endl;
+    this->~game();
+    exit(0);
   }
 }
