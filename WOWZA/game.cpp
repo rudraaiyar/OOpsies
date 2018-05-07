@@ -9,6 +9,7 @@
 #include "game.h"
 
 game::game(int AI, int level){
+    
   if (level>3 || level<1 || AI >2 || AI < 1){
     exit(0);
   }
@@ -22,6 +23,10 @@ game::game(int AI, int level){
   pong = new Ball(level);
   this->AI=AI;
   this->level=level;
+    
+
+  bg = new TexRect("grid.bmp", 1, 1, -1, 1, 5, 3);
+
 }
 game::~game(){
   delete play1;
@@ -36,20 +41,26 @@ game::~game(){
 
 //calls all the appropriate draw functions
 void game::draw(){
+    
   play1->draw();
+    
   if(AI==1){}
   if (AI==1) {
       if (level ==1){
           play1->draw();
           constBar->draw();
+          bg->draw();
           pong->draw();
       }else if(level==2){
           play1->draw();
           constBar->draw();
+          bg->draw();
           pong->draw();
       }else if(level ==3){
           play1->draw();
           constBar->draw();
+          bg->draw();
+
           pong->draw();
       }
       else{
@@ -59,19 +70,23 @@ void game::draw(){
       if (level ==1){
           play1->draw();
           play2->draw();
+          bg->draw();
           pong->draw();
       }else if(level==2){
           play1->draw();
           play2->draw();
+          bg->draw();
           pong->draw();
       }else if(level ==3){
           play1->draw();
           play2->draw();
+          bg->draw();
           pong->draw();
       }
       else{
           exit(0);
       }
+
   }
   //since ball will always be called we do a collisionCheck at the end
   collisionCheck();

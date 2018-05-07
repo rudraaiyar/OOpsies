@@ -3,6 +3,7 @@
 
 #include "Bar.hpp"
 #include "Ball.h"
+#include "TexRect.h"
 
 class game{
     Bar* play1;
@@ -19,6 +20,8 @@ public:
     void collisionCheck();
     void movePlay1(int key);
     void movePlay2(unsigned char key);
+    
+    TexRect* bg;
 };
 
 
