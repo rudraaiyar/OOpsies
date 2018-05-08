@@ -23,9 +23,7 @@ public:
     void animate();
     void flipXVel();
     void flipYVel();
-	void powerUp();
-	void powerTimer(int sec);
-	//void draw(float r);
+
 };
 
 #endif

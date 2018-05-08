@@ -1,7 +1,11 @@
 #include "game.h"
 
 game::game(){
+  power =new shape("power.png", 0,0,.25,.25,0);
 
+  p1score = new AnimatedRect("numbers-600.png", 3, 3, -0.2, 1, 0.2, 0.2);
+
+  p2score = new AnimatedRect("numbers-600.png", 3, 3, 0, 1, 0.2, 0.2);
   start=0;
   AIVal=0;
   levelVal=0;
@@ -18,7 +22,11 @@ game::~game(){
   }
   delete pong;
   delete background;
+
   delete startScreen;
+  delete power;
+  delete p1score;
+  delete p2score;
 }
 
 void timer(int value){
@@ -35,18 +43,23 @@ void game::draw(){
   }
   else{
   play1->draw();
+    if(play1->getScore() > 0){
+      p1score->animate();
+      p1score->draw();
+    }
     if (AI==1) {
       this->autoPlay2Move();
       constBar->draw();
     }else if(AI ==2){
       play2->draw();
     }
-    //bg->draw();
+    power->draw();
     pong->animate();
     background->draw();
 
     //since ball will always be called we do a collisionCheck at the end
     collisionCheck();
+    powerCheck();
   }
 }
 
@@ -60,10 +73,16 @@ void game::collisionCheck(){
   else if(pong->getXPos() <=-1 ){
     if(AI==2){
       play2->updateScore();
+      if(p2score->started()){
+	 p2score->advance();
+      }
       endGame();
     }
     else if(AI==1){
       constBar->updateScore();
+      if(p2score->started()){
+	 p2score->advance();
+      }
       endGame();
     }
 
@@ -71,6 +90,9 @@ void game::collisionCheck(){
   }
   else if(pong->getXPos() >=1){
     play1->updateScore();
+    if(p1score->started()){
+       p1score->advance();
+    }
     endGame();
     pong->resetBall();
   }
@@ -79,6 +101,22 @@ void game::collisionCheck(){
       pong->flipYVel();
   }
 }
+/************/
+void game::powerCheck(){
+    if (pong->getXPos() == power->getXPos() || pong->getYPos() == power->getYPos()){
+        pong->setSpeed();
+        delete power;
+        draw();
+    }
+}
+
+void game::powerTimer(int sec) {
+    clock_t endwait;
+    endwait = clock () + sec * CLOCKS_PER_SEC ;
+    while (clock() < endwait) {}
+}
+/************/
+
 void game::movePlay2(unsigned char key){
   if(key == GLUT_KEY_UP){
     play2->moveU();
