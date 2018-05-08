@@ -15,7 +15,7 @@ game::game(int AI, int level){
   }
   pong = new Ball(level,"ball.png", 0.0,0.0, 0.07, 0.07,0);
 
-  background = new shape("grid.png",-1,1,2,2,0);
+  background = new shape("grid.png",-1,1,5,3,0);
   this->AI=AI;
   this->level=level;
 
