@@ -1,9 +1,11 @@
 #include "game.h"
 #include "time.h"
 #include <iostream>
+#include "math.h"
 
 
 game::game(){
+
   power =new shape("power.png", 0,0,.25,.25,0);
 
   p1score = new AnimatedRect("numbers-600.png", 3, 3, -0.2, 1, 0.2, 0.2);
@@ -17,20 +19,28 @@ game::game(){
 
 }
 game::~game(){
+  std::cout<<"1 ";
   delete play1;
   if(AI==2){
+    std::cout<<"2 ";
     delete play2;
   }
   else if(AI==1){
+    std::cout<<"3 ";
     delete constBar;
   }
+  std::cout<<"4 ";
   delete pong;
+  std::cout<<"5 ";
   delete background;
 
   if(powerSpawn == 1){
+    std::cout<<"6 ";
     delete power;
   }
+  std::cout<<"7 ";
   delete p1score;
+  std::cout<<"8 ";
   delete p2score;
 }
 
@@ -47,11 +57,16 @@ void game::draw(){
     startScreen->draw();
   }
   else{
-  play1->draw();
+
     if(play1->getScore() > 0){
       p1score->animate();
       p1score->draw();
     }
+    if(play2->getScore() > 0 || constBar->getScore() > 0){
+      p2score->animate();
+      p2score->draw();
+    }
+    play1->draw();
     if (AI==1) {
       this->autoPlay2Move();
       constBar->draw();
@@ -78,19 +93,25 @@ void game::collisionCheck(){
   else if(pong->getXPos() <=-1 ){
     if(AI==2){
       play2->updateScore();
-      if(p2score->started()){
-	 p2score->advance();
+      /*if(p2score->started()){
+	       p2score->advance();
       }
       endGame();
+      */
     }
     else if(AI==1){
       constBar->updateScore();
+      /*
       if(p2score->started()){
-	 p2score->advance();
+	       p2score->advance();
       }
       endGame();
+      */
     }
-
+    if(p2score->started()){
+       p2score->advance();
+    }
+    endGame();
     pong->resetBall();
   }
   else if(pong->getXPos() >=1){
@@ -110,11 +131,12 @@ void game::collisionCheck(){
 void game::powerCheck(){
     if(powerSpawn == 0){
         powerSpawn=1;
+        power = new shape("power.png", ((rand() % 200)/100 - 1),((rand() % 200)/100 - 1),.25,.25,0);
         //delete power;
     }
         power->draw();
     if(power->contains(pong->getXPos(), pong->getYPos())){
-        pong->setSpeedo(1.5);
+        pong->setSpeedo(pong->getSpeed()+0.5);
         powerSpawn=0;
         pong->setSpeed();
         delete power;
