@@ -19,12 +19,11 @@ public:
     // These are the events we want to handle
     void draw();
     void idle();
-    void keyPress(unsigned char key);
-    void mouseDown(float x, float y);
-    void mouseDrag(float x, float y);
-    void specialKeyPress(int key);
+    void keyPress(unsigned char key); //for the user
+    void mouseDown(float x, float y);//not used
+    void mouseDrag(float x, float y);//not used
+    void specialKeyPress(int key);//adds some special feats to this game boy
 
-    //TexRect* bg;
 
 
 };

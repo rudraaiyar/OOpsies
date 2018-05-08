@@ -9,18 +9,18 @@ Bar::Bar(const char* filename, float x1,float y1, float w, float h, bool directi
 Bar::~Bar(){
   
 }
-void Bar::updateScore(){
+void Bar::updateScore(){ //ups score
   score++;
 }
 
-void Bar::moveU()
+void Bar::moveU() //moves the bby up
 {
     if (y>=1.0)
         y+=0;
     else y+=.18;
 }
 
-void Bar::moveD()
+void Bar::moveD() //moves bby down
 {
     if (y-h<= -1.0)
         y-=0;
@@ -33,7 +33,7 @@ float Bar::getWidth() const{
 float Bar::getHeight() const{
   return h;
 }
-int Bar::getScore() const{
+int Bar::getScore() const{ //getty for score
   return score;
 }
 bool Bar::contains(float mx,float my){

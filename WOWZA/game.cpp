@@ -4,7 +4,7 @@
 #include "math.h"
 
 
-game::game(){
+game::game(){ //this boy helps us init the stuff
 
   power =new shape("power.png", 0,0,.25,.25,0);
 
@@ -18,7 +18,7 @@ game::game(){
   startScreen = new shape("instruction_text.png",-1,0.5,2,1,0);
 
 }
-game::~game(){
+game::~game(){ //this boy helps us prevent memory leaks
   delete play1;
   if(AI==2){
     delete play2;
@@ -36,7 +36,7 @@ game::~game(){
   delete p2score;
 }
 
-void timer(int value){
+void timer(int value){ //this boy is a timer
   if(value == 100 || value == 75 || value==20){
     glutTimerFunc(value,timer,0);
   }
@@ -44,9 +44,9 @@ void timer(int value){
 }
 
 //calls all the appropriate draw functions
-void game::draw(){
+void game::draw(){ //this boy draws our scene
   if(start == 0){
-    startScreen->draw();
+    startScreen->draw(); //for your knowledge to play game
   }
   else{
 
@@ -71,11 +71,11 @@ void game::draw(){
 
     //since ball will always be called we do a collisionCheck at the end
     collisionCheck();
-    powerCheck();
+    powerCheck(); //power boy makes you go 1.5 speedo
   }
 }
 
-void game::collisionCheck(){
+void game::collisionCheck(){ //this boy helps us find which playa gonna make bank and win
   //This will check if the ball makes contact with one of the bars
  if(play1->contains(pong->getXPos(), pong->getYPos()) ||
   (AI==2 && play2->contains(pong->getXPos(), pong->getYPos())) ||
@@ -109,7 +109,7 @@ void game::collisionCheck(){
   }
 }
 /************/
-void game::powerCheck(){
+void game::powerCheck(){ //this boy deals with tide pods and tells us whether we get the goods or nah
     if(powerSpawn == 0){
         powerSpawn=1;
         power = new shape("power.png", ((rand() % 190)/100.0 - 0.9),((rand() % 190)/100.0 - 0.9),.2,.2,0);
@@ -125,7 +125,7 @@ void game::powerCheck(){
 
 }
 
-void game::powerTimer(int sec) {
+void game::powerTimer(int sec) { //this boy ruined our game, but in progress
     clock_t endwait;
     endwait = clock () + (sec) * CLOCKS_PER_SEC ;
     while (clock() < endwait) {
@@ -133,7 +133,7 @@ void game::powerTimer(int sec) {
 }
 /************/
 
-void game::movePlay2(unsigned char key){
+void game::movePlay2(unsigned char key){ //move me with special keys upsie and downsies
   if(key == GLUT_KEY_UP){
     play2->moveU();
   }
@@ -149,7 +149,7 @@ void game::movePlay1(int key){
     play1->moveD();
   }
 }
-void game::autoPlay2Move(){
+void game::autoPlay2Move(){ //this boy fancy and he do the ai, but he a winner all the time
   if(constBar->getYPos()-constBar->getHeight() > pong->getYPos()){
     constBar->moveD();
   }
@@ -158,7 +158,7 @@ void game::autoPlay2Move(){
   }
 }
 
-void game::onClickStart(unsigned char key){
+void game::onClickStart(unsigned char key){ //helps with user input
   if(AIVal == 0){
     if(key == '1' || key == '2'){
       AI=key-48;
@@ -195,7 +195,7 @@ void game::onClickStart(unsigned char key){
   }
 }
 //TODO::Add some end game screen
-void game::endGame(){
+void game::endGame(){ //this boy determines who wins the lottery and tells who the winner is
   if(AI==1 && constBar->getScore()==4){
     std::cout<<"Player 2 won"<<std::endl;
     this->~game();
