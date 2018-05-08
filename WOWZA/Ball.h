@@ -11,7 +11,8 @@ class Ball: public shape {
     float velX;
     float velY;
     float angle;
-
+	int count=0;
+	float r;
 
 public:
     Ball(int);
@@ -23,6 +24,9 @@ public:
     void draw();
     void flipXVel();
     void flipYVel();
+	void powerUp();
+	void powerTimer(int sec);
+	void draw(float r);
 };
 
 #endif
