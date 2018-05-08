@@ -69,7 +69,12 @@ void App::keyPress(unsigned char key) {
   //use key to see how play1 should move if at all
     g->onClickStart(key);
     g->movePlay1(key);
-    
+	if(key == 112){
+		g->powerTimer(1);
+	}
+	if(key == 128){
+		g-> powerTimer(0);
+	}
     if (key == 27){
         // Exit the app when Esc key is pressed
         delete g;
