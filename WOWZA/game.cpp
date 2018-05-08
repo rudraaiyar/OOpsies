@@ -41,6 +41,8 @@ game::~game(){ //this boy helps us prevent memory leaks
   }
   delete p1score;
   delete p2score;
+  delete p1win;
+  delete p2win;
 }
 
 void timer(int value){ //this boy is a timer
@@ -58,17 +60,21 @@ void game::draw(){ //this boy draws our scene
   else{
 
     if(gameOver){
-        //this->~game();
-        if(play2->getScore() == 4 || constBar->getScore() == 4)
-          p2win->draw();
-        else if(play1->getScore() ==4){
-          p1win->draw();
-        }
-	      powerTimer(1);
-         //exit(0);
-	       //this->~game();
-         //powerTimer(5);
-
+	if(play1->getScore() > play2->getScore()){
+           p1win->draw();
+	   powerTimer(3);
+	   //this->~game();
+	}
+	else if(play1->getScore() > constBar->getScore()){
+           p1win->draw();
+	   powerTimer(3);
+	   //this->~game();
+	}
+	else{
+	   p2win->draw();
+	   powerTimer(3);
+	   //this->~game();
+	}
     }
 
     if(play1->getScore() > 0){
@@ -183,7 +189,6 @@ void game::onClickStart(unsigned char key){ //helps with user input
   if(AIVal == 0){
     if(key == '1' || key == '2'){
       AI=key-48;
-      std::cout<<"AI "<<AI<<std::endl;
       AIVal=1;
     }
     else{
@@ -194,7 +199,6 @@ void game::onClickStart(unsigned char key){ //helps with user input
   else if(levelVal == 0){
     if(key == '1' || key == '2'  || key == '3'){
       level = key-48;
-      std::cout<<"level "<<level<<std::endl;
       levelVal = 1;
     }
     else{
@@ -219,18 +223,14 @@ void game::onClickStart(unsigned char key){ //helps with user input
 void game::endGame(){ //this boy determines who wins the lottery and tells who the winner is
   if(AI==1 && constBar->getScore()==4){
     gameOver = true;
-//    std::cout<<"Player 2 won"<<std::endl;
-//    this->~game();
-//    exit(0);
+
   }
   else if(AI ==2 && play2->getScore()==4){
-    std::cout<<"Player 2 won"<<std::endl;
-    this->~game();
-    exit(0);
+    gameOver = true;
+
   }
   else if(play1->getScore()==4){
-    std::cout<<"Player 1 won"<<std::endl;
-    this->~game();
-    exit(0);
+    gameOver = true;
+
   }
 }
