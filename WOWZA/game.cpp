@@ -35,7 +35,7 @@ void game::draw(){
   }
   else{
   play1->draw();
-    if (AI==1) {
+    if (AI==1) {  
       this->autoPlay2Move();
       constBar->draw();
     }else if(AI ==2){
