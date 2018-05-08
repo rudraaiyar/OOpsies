@@ -1,6 +1,10 @@
 #include "Ball.h"
 #include <math.h>
 #include <stdlib.h>
+#include <iomanip>
+#include <iostream>
+#include <time.h>
+#include <unistd.h>
 
 #define PI 3.141592653
 #include<iostream>
@@ -11,13 +15,8 @@ Ball::Ball(int speed, const char*filename,float x,float y, float w, float h, boo
   :shape(filename,x,y,w,h,direction){
   resetBall();
   vel=((speed * 0.01) + 0.02);
-  cout<<"speed "<<speed<<" angle "<<angle<<endl;
   velX=vel*cosf((angle * PI /180.0));
   velY=vel*sinf((angle * PI /180.0));
-  cout<<"vel, velX velY "<< vel<<" "<<velX<<" "<<velY<<endl;
-  cout<<"finished"<<endl;
-
-
 }
 Ball::~Ball(){
 }
@@ -52,9 +51,28 @@ void Ball::animate()
   moveBall();
 }
 
+
 void Ball::flipXVel(){
   velX*=-1;
 }
 void Ball::flipYVel(){
   velY*=-1;
+}
+
+void Ball::powerUp(){
+	powerTimer(15);
+	//draw(0.09);
+	powerTimer(5);
+	draw();
+	powerTimer(15);
+	//draw(0.03);
+	powerTimer(5);
+	draw();
+	powerUp();
+}
+
+void Ball::powerTimer(int sec) {
+  clock_t endwait;
+  endwait = clock () + sec * CLOCKS_PER_SEC ;
+  while (clock() < endwait) {}
 }
