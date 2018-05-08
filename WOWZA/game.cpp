@@ -61,6 +61,7 @@ void game::draw(){
 
   //since ball will always be called we do a collisionCheck at the end
   collisionCheck();
+  powerCheck();
 }
 
 void game::collisionCheck(){
@@ -92,6 +93,22 @@ void game::collisionCheck(){
       pong->flipYVel();
   }
 }
+/************/
+void game::powerCheck(){
+    if (pong->getXPos() == power->getXPos() || pong->getYPos() == power->getYPos()){
+        pong->setSpeed
+        delete power;
+        draw();
+    }
+}
+
+void game::powerTimer(int sec) {
+    clock_t endwait;
+    endwait = clock () + sec * CLOCKS_PER_SEC ;
+    while (clock() < endwait) {}
+}
+/************/
+
 void game::movePlay1(int key){
   if(key == GLUT_KEY_UP){
     play2->moveU();

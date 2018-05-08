@@ -19,6 +19,8 @@ public:
 
     void draw();
     void collisionCheck();
+    void powerCheck();
+    void powerTimer(int sec);
     void movePlay1(int key);
     void movePlay2(unsigned char key);
     void autoPlay2Move();

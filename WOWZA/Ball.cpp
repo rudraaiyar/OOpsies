@@ -59,20 +59,3 @@ void Ball::flipYVel(){
   velY*=-1;
 }
 
-void Ball::powerUp(){
-	powerTimer(15);
-	//draw(0.09);
-	powerTimer(5);
-	draw();
-	powerTimer(15);
-	//draw(0.03);
-	powerTimer(5);
-	draw();
-	powerUp();
-}
-
-void Ball::powerTimer(int sec) {
-  clock_t endwait;
-  endwait = clock () + sec * CLOCKS_PER_SEC ;
-  while (clock() < endwait) {}
-}
