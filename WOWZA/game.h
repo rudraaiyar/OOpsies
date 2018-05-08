@@ -9,6 +9,7 @@ class game{
     Bar* play2;
     Bar* constBar;
     Ball* pong;
+    shape* background;
     int AI;
     int level;
 public:

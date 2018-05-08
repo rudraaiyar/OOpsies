@@ -14,6 +14,8 @@ game::game(int AI, int level){
     constBar = new Bar("Plank.png",0.8, 0.0,0.1,0.3,1);
   }
   pong = new Ball(level,"ball.png", 0.0,0.0, 0.07, 0.07,0);
+
+  background = new shape("grid.png",-1,1,2,2,0);
   this->AI=AI;
   this->level=level;
 
@@ -29,6 +31,7 @@ game::~game(){
     delete constBar;
   }
   delete pong;
+  delete background;
 }
 
 void timer(int value){
@@ -50,6 +53,8 @@ void game::draw(){
   }
   //bg->draw();
   pong->animate();
+  background->draw();
+
   //since ball will always be called we do a collisionCheck at the end
   collisionCheck();
 }
