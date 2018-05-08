@@ -19,28 +19,20 @@ game::game(){
 
 }
 game::~game(){
-  std::cout<<"1 ";
   delete play1;
   if(AI==2){
-    std::cout<<"2 ";
     delete play2;
   }
   else if(AI==1){
-    std::cout<<"3 ";
     delete constBar;
   }
-  std::cout<<"4 ";
   delete pong;
-  std::cout<<"5 ";
   delete background;
 
   if(powerSpawn == 1){
-    std::cout<<"6 ";
     delete power;
   }
-  std::cout<<"7 ";
   delete p1score;
-  std::cout<<"8 ";
   delete p2score;
 }
 
@@ -62,11 +54,11 @@ void game::draw(){
       p1score->animate();
       p1score->draw();
     }
-    if(play2->getScore() > 0 || constBar->getScore() > 0){
+    play1->draw();
+    if((AI==2 && play2->getScore() > 0) || (AI==1 && constBar->getScore() > 0)){
       p2score->animate();
       p2score->draw();
     }
-    play1->draw();
     if (AI==1) {
       this->autoPlay2Move();
       constBar->draw();
@@ -93,20 +85,9 @@ void game::collisionCheck(){
   else if(pong->getXPos() <=-1 ){
     if(AI==2){
       play2->updateScore();
-      /*if(p2score->started()){
-	       p2score->advance();
-      }
-      endGame();
-      */
     }
     else if(AI==1){
       constBar->updateScore();
-      /*
-      if(p2score->started()){
-	       p2score->advance();
-      }
-      endGame();
-      */
     }
     if(p2score->started()){
        p2score->advance();
