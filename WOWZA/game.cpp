@@ -49,8 +49,13 @@ void game::draw(){
   else{
   play1->draw();
     if(play1->getScore() > 0){
-      p1score->animate();
+      //p1score->animate();
       p1score->draw();
+    }
+    //TODO:: FIX ONLY ONE EXISTS AT A TIME
+    if(play2->getScore() > 0 || constBar->getScore() > 0){
+      //p2score->animate();
+      p2score->draw();
     }
     if (AI==1) {
       this->autoPlay2Move();
@@ -79,14 +84,14 @@ void game::collisionCheck(){
     if(AI==2){
       play2->updateScore();
       if(p2score->started()){
-	 p2score->advance();
+	       p2score->advance();
       }
       endGame();
     }
     else if(AI==1){
       constBar->updateScore();
       if(p2score->started()){
-	 p2score->advance();
+	       p2score->advance();
       }
       endGame();
     }
@@ -110,6 +115,7 @@ void game::collisionCheck(){
 void game::powerCheck(){
     if(powerSpawn == 0){
         powerSpawn=1;
+        power =new shape("power.png", 0,0,.25,.25,0);
         //delete power;
     }
         power->draw();
