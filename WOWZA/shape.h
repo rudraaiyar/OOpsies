@@ -30,6 +30,8 @@ public:
   float getXPos()const;
   float getYPos()const;
   void draw();
+  bool contains(float, float);
+
 };
 
 #endif

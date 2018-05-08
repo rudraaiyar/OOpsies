@@ -62,3 +62,12 @@ void shape::draw(){
 
   glDisable(GL_TEXTURE_2D);
 }
+
+bool shape::contains(float mx,float my){
+    if((mx >= x && mx <= x+w) && (my <= y && my >= y - h)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
