@@ -15,7 +15,10 @@ game::game(){
   AIVal=0;
   levelVal=0;
   powerSpawn=0;
+  gameOver=0;
   startScreen = new shape("instruction_text.png",-1,0.5,2,1,0);
+  p1win = new shape("p1win.png", -1, 0.5, 2.0, 0.5, 0);
+  p2win = new shape("p2win.png", -1, 0.5, 2.0, 0.5, 0);
 
 }
 game::~game(){
@@ -49,6 +52,13 @@ void game::draw(){
     startScreen->draw();
   }
   else{
+
+    if(gameOver){
+        p2win->draw();
+	powerTimer(5);
+	this->~game();
+//	exit(0);
+    }
 
     if(play1->getScore() > 0){
       p1score->animate();
@@ -197,9 +207,10 @@ void game::onClickStart(unsigned char key){
 //TODO::Add some end game screen
 void game::endGame(){
   if(AI==1 && constBar->getScore()==4){
-    std::cout<<"Player 2 won"<<std::endl;
-    this->~game();
-    exit(0);
+    gameOver = true;
+//    std::cout<<"Player 2 won"<<std::endl;
+//    this->~game();
+//    exit(0);
   }
   else if(AI ==2 && play2->getScore()==4){
     std::cout<<"Player 2 won"<<std::endl;

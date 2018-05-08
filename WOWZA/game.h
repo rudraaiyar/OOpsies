@@ -13,6 +13,8 @@ class game{
     shape* background;
     shape* startScreen;
     shape* power;
+    shape* p1win;
+    shape* p2win;
     AnimatedRect* p1score;
     AnimatedRect* p2score;
     int AI;
@@ -21,6 +23,7 @@ class game{
     bool AIVal;
     bool levelVal;
     bool powerSpawn;
+    bool gameOver;
 public:
     game();
     ~game();
