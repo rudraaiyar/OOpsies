@@ -21,6 +21,11 @@ game::game(int AI, int level){
   background = new shape("grid.png",-1,1,5,3,0);
     
   power =new shape("power.png", -0.5,-0.5,.25,.25,0);
+  power =new shape("power.png", 0,0,.25,.25,0);
+
+  p1score = new AnimatedRect("numbers-600.png", 3, 3, -0.2, 1, 0.2, 0.2);
+
+  p2score = new AnimatedRect("numbers-600.png", 3, 3, 0, 1, 0.2, 0.2);
     
   this->AI=AI;
   this->level=level;
@@ -40,6 +45,8 @@ game::~game(){
   delete pong;
   delete background;
   delete power;
+  delete p1score;
+  delete p2score;
 }
 
 void timer(int value){
@@ -53,11 +60,23 @@ void timer(int value){
 void game::draw(){
 
   play1->draw();
+  if(play1->getScore() > 0){
+       p1score->animate(); 
+       p1score->draw();
+  }
   if (AI==1) {
     this->autoPlay2Move();
     constBar->draw();
+    if(constBar->getScore() > 0){
+	  p2score->animate();
+	  p2score->draw();
+    }
   }else if(AI ==2){
     play2->draw();
+    if(play2->getScore() > 0){
+	  p2score->animate();
+	  p2score->draw();
+    }
   }
   pong->animate();
   powerCheck();
@@ -77,10 +96,16 @@ void game::collisionCheck(){
   else if(pong->getXPos() <=-1 ){
     if(AI==2){
       play2->updateScore();
+      if(p2score->started()){      
+	 p2score->advance();
+      }
       endGame();
     }
     else if(AI==1){
       constBar->updateScore();
+      if(p2score->started()){      
+	 p2score->advance();
+      }
       endGame();
     }
 
@@ -88,6 +113,9 @@ void game::collisionCheck(){
   }
   else if(pong->getXPos() >=1){
     play1->updateScore();
+    if(p1score->started()){
+       p1score->advance();
+    }
     endGame();
     pong->resetBall();
   }
@@ -98,20 +126,17 @@ void game::collisionCheck(){
 }
 /************/
 void game::powerCheck(){
-    //std::cout<<"Are you being called?"<<std::endl;
     if(powerSpawn == 0){
-        std::cout<<"Are you being called?"<<std::endl;
         //power =new shape("power.png", -0.5,-0.5,.25,.25,0);
         powerSpawn=1;
         //powerTimer(3);
         //power->draw();
-    
     }
-
         power->draw();
     if (pong->getXPos() == power->getXPos() || pong->getYPos() == power->getYPos()){
         pong->setSpeedo(1.5);
         powerSpawn=0;
+        pong->setSpeed();
         delete power;
     }
 }

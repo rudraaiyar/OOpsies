@@ -3,6 +3,7 @@
 
 #include "Bar.hpp"
 #include "Ball.h"
+#include "AnimatedRect.h"
 
 class game{
     Bar* play1;
@@ -11,6 +12,8 @@ class game{
     Ball* pong;
     shape* background;
     shape* power;
+    AnimatedRect* p1score;
+    AnimatedRect* p2score;
     int AI;
     int level;
     bool powerSpawn;
