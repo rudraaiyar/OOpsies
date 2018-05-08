@@ -16,6 +16,9 @@ game::game(int AI, int level){
   pong = new Ball(level,"ball.png", 0.0,0.0, 0.07, 0.07,0);
 
   background = new shape("grid.png",-1,1,5,3,0);
+    
+  power =new shape("power.png", 0,0,.25,.25,0);
+    
   this->AI=AI;
   this->level=level;
 
@@ -32,6 +35,7 @@ game::~game(){
   }
   delete pong;
   delete background;
+  delete power;
 }
 
 void timer(int value){
@@ -51,7 +55,7 @@ void game::draw(){
   }else if(AI ==2){
     play2->draw();
   }
-  //bg->draw();
+  power->draw();
   pong->animate();
   background->draw();
 

@@ -10,6 +10,7 @@ class game{
     Bar* constBar;
     Ball* pong;
     shape* background;
+    shape* power;
     int AI;
     int level;
 public:
