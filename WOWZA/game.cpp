@@ -41,6 +41,8 @@ game::~game(){ //this boy helps us prevent memory leaks
   }
   delete p1score;
   delete p2score;
+  delete p1win;
+  delete p2win;
 }
 
 void timer(int value){ //this boy is a timer
@@ -58,10 +60,21 @@ void game::draw(){ //this boy draws our scene
   else{
 
     if(gameOver){
-        p2win->draw();
-	powerTimer(5);
-	this->~game();
-//	exit(0);
+	if(play1->getScore() > play2->getScore()){
+           p1win->draw();
+	   powerTimer(3);
+	   this->~game();
+	}
+	else if(play1->getScore() > constBar->getScore()){
+           p1win->draw();
+	   powerTimer(3);
+	   this->~game();
+	}
+	else{
+	   p2win->draw();
+	   powerTimer(3);
+	   this->~game();
+	}
     }
 
     if(play1->getScore() > 0){
@@ -217,13 +230,15 @@ void game::endGame(){ //this boy determines who wins the lottery and tells who t
 //    exit(0);
   }
   else if(AI ==2 && play2->getScore()==4){
-    std::cout<<"Player 2 won"<<std::endl;
-    this->~game();
-    exit(0);
+    gameOver = true;
+//    std::cout<<"Player 2 won"<<std::endl;
+//    this->~game();
+//    exit(0);
   }
   else if(play1->getScore()==4){
-    std::cout<<"Player 1 won"<<std::endl;
-    this->~game();
-    exit(0);
+    gameOver = true;
+//    std::cout<<"Player 1 won"<<std::endl;
+//    this->~game();
+//    exit(0);
   }
 }
