@@ -12,6 +12,8 @@
 #include <SOIL.h>
 #endif
 
+//this is class is the parent of ball and bar
+
 
 class shape{
 protected:
@@ -20,18 +22,21 @@ protected:
   float w;
   float h;
   bool direction;
-  GLuint texture_id;
+  GLuint texture_id; //soil purposes
 
 public:
   shape(const char*, float, float, float, float,bool);
   virtual ~shape();
+// getters and setter
   void setXPos(float);
   void setYPos(float);
   float getXPos()const;
   float getYPos()const;
   void draw();
-  bool contains(float, float);
+  bool contains(float, float); //checks whether or not obj hits thingy
 
 };
 
 #endif
+
+//can we have the A, we didnt use your template for the animations :) we did it from scratch

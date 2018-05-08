@@ -10,7 +10,7 @@
 #include<iostream>
 using namespace std;
 
-
+//build me up
 Ball::Ball(int speed, const char*filename,float x,float y, float w, float h, bool direction=0)
   :shape(filename,x,y,w,h,direction){
   resetBall();
@@ -18,19 +18,28 @@ Ball::Ball(int speed, const char*filename,float x,float y, float w, float h, boo
   velX=vel*cosf((angle * PI /180.0));
   velY=vel*sinf((angle * PI /180.0));
 }
+//tear me down
 Ball::~Ball(){
 }
 
-void Ball::setSpeedo(float sec){
-    vel=(sec * 0.02)+0.04;
-}
-void Ball::setSpeed(){
-  vel=(speed * 0.02)+0.04;
+void Ball::speedUp(){
+    if(velX>0){
+      velX+=0.001;
+    }
+    else{
+      velX-=0.001;
+    }
+    if(velY>0){
+      velY+=0.001;
+    }
+    else{
+      velY-=0.001;
+    }
 }
 //Ball(float x, float y);
 void Ball::setVel(){
     velX=vel*cos((angle * PI /180.0));
-    velX=vel*sin((angle * PI /180.0));
+    velY=vel*sin((angle * PI /180.0));
 }
 void Ball::moveBall(){
     x+=velX;
@@ -61,4 +70,3 @@ void Ball::flipXVel(){
 void Ball::flipYVel(){
   velY*=-1;
 }
-

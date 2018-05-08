@@ -1,6 +1,6 @@
 #include "shape.h"
 
-shape::shape(const char* filename, float x, float y, float w, float h, bool direction){
+shape::shape(const char* filename, float x, float y, float w, float h, bool direction){ //constructor
   glClearColor (0.0, 0.0, 0.0, 0.0);
   glShadeModel(GL_FLAT);
   glEnable(GL_DEPTH_TEST);
@@ -25,7 +25,7 @@ shape::shape(const char* filename, float x, float y, float w, float h, bool dire
   this->h = h;
   this->direction=direction;
 }
-shape::~shape(){
+shape::~shape(){ //deconstorutretertertre
   
 }
 void shape::setXPos(float xPos){
@@ -40,7 +40,7 @@ float shape::getXPos()const{
 float shape::getYPos()const{
   return y;
 }
-void shape::draw(){
+void shape::draw(){ //hwo we draw
   glBindTexture( GL_TEXTURE_2D, texture_id );
   glEnable(GL_TEXTURE_2D);
 

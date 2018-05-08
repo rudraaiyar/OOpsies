@@ -45,7 +45,7 @@ public:
     
     void stop();
 
-    bool started();
+    bool started(); //this is the only addition we did to this file
 };
 
 #endif

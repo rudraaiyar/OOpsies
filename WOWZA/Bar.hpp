@@ -4,7 +4,11 @@
 //
 //  Created by Rudra Aiyar on 3/17/18.
 //  Copyright © 2018 Angelo Kyrilov. All rights reserved.
-//
+
+
+//this is the baby of shape
+
+//creates bars for user to play with
 
 #ifndef Bar_hpp
 #define Bar_hpp
