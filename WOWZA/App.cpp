@@ -11,13 +11,14 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     mx = 0.0;
     my = 0.0;
 
-    cout<< "Single Player: use up and down arrow keys to move bar."<<endl;
+  /*  cout<< "Single Player: use up and down arrow keys to move bar."<<endl;
     cout<< "Two Player: player 1 (up and down arrow keys), player 2 (w and s keyboard keys)."<<endl;
     cout<< "Single or Two Player (1 or 2): ";
     cin>>AI;
     cout<<"Level (1,2,3): ";
     cin>>level;
-    g=new game(AI, level);
+    */
+    g=new game();
     //bg = new TexRect("pg.bmp", 1, 1, -1.0, 1.0, 2, 2);
 }
 
@@ -62,8 +63,8 @@ void App::mouseDrag(float x, float y){
 }
 
 void App::specialKeyPress(int key){
-    //use key to see how play1 should move if at all
-    g->movePlay1(key);
+    //use key to see how play2 should move if at all
+    g->movePlay2(key);
     redraw();
 }
 //This funciton is called all the time, which is why ball is able to move
@@ -73,8 +74,9 @@ void App::idle(){
 }
 
 void App::keyPress(unsigned char key) {
-  //use key to see how play2 should move if at all
-    g->movePlay2(key);
+  //use key to see how play1 should move if at all
+    g->onClickStart(key);
+    g->movePlay1(key);
     if (key == 27){
         // Exit the app when Esc key is pressed
         delete g;

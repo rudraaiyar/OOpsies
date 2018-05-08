@@ -10,16 +10,21 @@ class game{
     Bar* constBar;
     Ball* pong;
     shape* background;
+    shape* startScreen;
     int AI;
     int level;
+    bool start;
+    bool AIVal;
+    bool levelVal;
 public:
-    game(int,int);
+    game();
     ~game();
 
     void draw();
     void collisionCheck();
-    void movePlay1(int key);
-    void movePlay2(unsigned char key);
+    void movePlay1(int);
+    void movePlay2(unsigned char);
+    void onClickStart(unsigned char);
     void autoPlay2Move();
     void endGame();
 };

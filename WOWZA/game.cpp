@@ -1,25 +1,11 @@
 #include "game.h"
 
-game::game(int AI, int level){
+game::game(){
 
-  if (level>3 || level<1 || AI >2 || AI < 1){
-    exit(0);
-  }
-  play1 = new Bar("Plank.png",-0.95, 0.0, 0.1, 0.3,0);
-  if(AI==2){
-    play2 = new Bar("Plank.png",0.8, 0.0,0.1,0.3,1);
-  }
-  else if(AI==1){
-
-    constBar = new Bar("Plank.png",0.8, 0.0,0.1,0.3,1);
-  }
-  pong = new Ball(level,"ball.png", 0.0,0.0, 0.07, 0.07,0);
-
-  background = new shape("grid.png",-1,1,5,3,0);
-  this->AI=AI;
-  this->level=level;
-
-
+  start=0;
+  AIVal=0;
+  levelVal=0;
+  startScreen = new shape("instruction_text.png",-1,0.5,2,1,0);
 
 }
 game::~game(){
@@ -32,6 +18,7 @@ game::~game(){
   }
   delete pong;
   delete background;
+  delete startScreen;
 }
 
 void timer(int value){
@@ -43,20 +30,24 @@ void timer(int value){
 
 //calls all the appropriate draw functions
 void game::draw(){
-
-  play1->draw();
-  if (AI==1) {
-    this->autoPlay2Move();
-    constBar->draw();
-  }else if(AI ==2){
-    play2->draw();
+  if(start == 0){
+    startScreen->draw();
   }
-  //bg->draw();
-  pong->animate();
-  background->draw();
+  else{
+  play1->draw();
+    if (AI==1) {
+      this->autoPlay2Move();
+      constBar->draw();
+    }else if(AI ==2){
+      play2->draw();
+    }
+    //bg->draw();
+    pong->animate();
+    background->draw();
 
-  //since ball will always be called we do a collisionCheck at the end
-  collisionCheck();
+    //since ball will always be called we do a collisionCheck at the end
+    collisionCheck();
+  }
 }
 
 void game::collisionCheck(){
@@ -88,7 +79,7 @@ void game::collisionCheck(){
       pong->flipYVel();
   }
 }
-void game::movePlay1(int key){
+void game::movePlay2(unsigned char key){
   if(key == GLUT_KEY_UP){
     play2->moveU();
   }
@@ -96,7 +87,7 @@ void game::movePlay1(int key){
     play2->moveD();
   }
 }
-void game::movePlay2(unsigned char key){
+void game::movePlay1(int key){
   if(key == 119){
     play1->moveU();
   }
@@ -110,6 +101,43 @@ void game::autoPlay2Move(){
   }
   else if(constBar->getYPos() < pong->getYPos()){
     constBar->moveU();
+  }
+}
+
+void game::onClickStart(unsigned char key){
+  if(AIVal == 0){
+    if(key == '1' || key == '2'){
+      AI=key-48;
+      std::cout<<"AI "<<AI<<std::endl;
+      AIVal=1;
+    }
+    else{
+      delete startScreen;
+      exit(0);
+    }
+  }
+  else if(levelVal == 0){
+    if(key == '1' || key == '2'  || key == '3'){
+      level = key-48;
+      std::cout<<"level "<<level<<std::endl;
+      levelVal = 1;
+    }
+    else{
+      delete startScreen;
+      exit(0);
+    }
+    if(levelVal == 1 && AIVal ==1){
+      start=1;
+      play1 = new Bar("Plank.png",-0.95, 0.0, 0.1, 0.3,0);
+      if(AI==2){
+        play2 = new Bar("Plank.png",0.8, 0.0,0.1,0.3,1);
+      }
+      else if(AI==1){
+        constBar = new Bar("Plank.png",0.8, 0.0,0.1,0.3,1);
+      }
+      background = new shape("grid.png",-1,1,5,3,0);
+      pong = new Ball(level,"ball.png", 0.0,0.0, 0.07, 0.07,0);
+    }
   }
 }
 //TODO::Add some end game screen
