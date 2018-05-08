@@ -58,10 +58,17 @@ void game::draw(){ //this boy draws our scene
   else{
 
     if(gameOver){
-        p2win->draw();
-	powerTimer(5);
-	this->~game();
-//	exit(0);
+        //this->~game();
+        if(play2->getScore() == 4 || constBar->getScore() == 4)
+          p2win->draw();
+        else if(play1->getScore() ==4){
+          p1win->draw();
+        }
+	      powerTimer(1);
+         //exit(0);
+	       //this->~game();
+         //powerTimer(5);
+
     }
 
     if(play1->getScore() > 0){
