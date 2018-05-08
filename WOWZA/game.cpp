@@ -14,8 +14,15 @@ game::game(){ //this boy helps us init the stuff
   start=0;
   AIVal=0;
   levelVal=0;
+
   powerSpawn=0;
+  gameOver=0;
+
+  powerSpawn=1;
+
   startScreen = new shape("instruction_text.png",-1,0.5,2,1,0);
+  p1win = new shape("p1win.png", -1, 0.5, 2.0, 0.5, 0);
+  p2win = new shape("p2win.png", -1, 0.5, 2.0, 0.5, 0);
 
 }
 game::~game(){ //this boy helps us prevent memory leaks
@@ -34,6 +41,8 @@ game::~game(){ //this boy helps us prevent memory leaks
   }
   delete p1score;
   delete p2score;
+  delete p1win;
+  delete p2win;
 }
 
 void timer(int value){ //this boy is a timer
@@ -49,6 +58,24 @@ void game::draw(){ //this boy draws our scene
     startScreen->draw(); //for your knowledge to play game
   }
   else{
+
+    if(gameOver){
+	if(play1->getScore() > play2->getScore()){
+           p1win->draw();
+	   powerTimer(3);
+	   this->~game();
+	}
+	else if(play1->getScore() > constBar->getScore()){
+           p1win->draw();
+	   powerTimer(3);
+	   this->~game();
+	}
+	else{
+	   p2win->draw();
+	   powerTimer(3);
+	   this->~game();
+	}
+    }
 
     if(play1->getScore() > 0){
       p1score->animate();
@@ -112,14 +139,14 @@ void game::collisionCheck(){ //this boy helps us find which playa gonna make ban
 void game::powerCheck(){ //this boy deals with tide pods and tells us whether we get the goods or nah
     if(powerSpawn == 0){
         powerSpawn=1;
-        power = new shape("power.png", ((rand() % 200)/100 - 1),((rand() % 200)/100 - 1),.25,.25,0);
+        power = new shape("power.png", ((rand() % 190)/100.0 - 0.9),((rand() % 190)/100.0 - 0.9),.2,.2,0);
         //delete power;
     }
         power->draw();
     if(power->contains(pong->getXPos(), pong->getYPos())){
-        pong->setSpeedo(pong->getSpeed()+0.5);
+        pong->speedUp();
         powerSpawn=0;
-        pong->setSpeed();
+        //pong->setSpeed();
         delete power;
     }
 
@@ -198,18 +225,21 @@ void game::onClickStart(unsigned char key){ //helps with user input
 //TODO::Add some end game screen
 void game::endGame(){ //this boy determines who wins the lottery and tells who the winner is
   if(AI==1 && constBar->getScore()==4){
-    std::cout<<"Player 2 won"<<std::endl;
-    this->~game();
-    exit(0);
+    gameOver = true;
+//    std::cout<<"Player 2 won"<<std::endl;
+//    this->~game();
+//    exit(0);
   }
   else if(AI ==2 && play2->getScore()==4){
-    std::cout<<"Player 2 won"<<std::endl;
-    this->~game();
-    exit(0);
+    gameOver = true;
+//    std::cout<<"Player 2 won"<<std::endl;
+//    this->~game();
+//    exit(0);
   }
   else if(play1->getScore()==4){
-    std::cout<<"Player 1 won"<<std::endl;
-    this->~game();
-    exit(0);
+    gameOver = true;
+//    std::cout<<"Player 1 won"<<std::endl;
+//    this->~game();
+//    exit(0);
   }
 }
