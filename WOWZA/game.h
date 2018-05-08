@@ -13,6 +13,7 @@ class game{
     shape* power;
     int AI;
     int level;
+    bool powerSpawn;
 public:
     game(int,int);
     ~game();

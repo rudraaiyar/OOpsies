@@ -1,4 +1,7 @@
 #include "game.h"
+#include "time.h"
+#include <iostream>
+
 
 game::game(int AI, int level){
 
@@ -17,10 +20,11 @@ game::game(int AI, int level){
 
   background = new shape("grid.png",-1,1,5,3,0);
     
-  power =new shape("power.png", 0,0,.25,.25,0);
+  power =new shape("power.png", -0.5,-0.5,.25,.25,0);
     
   this->AI=AI;
   this->level=level;
+  powerSpawn=0;
 
 
 
@@ -55,13 +59,12 @@ void game::draw(){
   }else if(AI ==2){
     play2->draw();
   }
-  power->draw();
   pong->animate();
+  powerCheck();
   background->draw();
 
   //since ball will always be called we do a collisionCheck at the end
   collisionCheck();
-  powerCheck();
 }
 
 void game::collisionCheck(){
@@ -95,17 +98,29 @@ void game::collisionCheck(){
 }
 /************/
 void game::powerCheck(){
+    //std::cout<<"Are you being called?"<<std::endl;
+    if(powerSpawn == 0){
+        std::cout<<"Are you being called?"<<std::endl;
+        //power =new shape("power.png", -0.5,-0.5,.25,.25,0);
+        powerSpawn=1;
+        //powerTimer(3);
+        //power->draw();
+    
+    }
+
+        power->draw();
     if (pong->getXPos() == power->getXPos() || pong->getYPos() == power->getYPos()){
-        pong->setSpeed
+        pong->setSpeedo(1.5);
+        powerSpawn=0;
         delete power;
-        draw();
     }
 }
 
 void game::powerTimer(int sec) {
     clock_t endwait;
-    endwait = clock () + sec * CLOCKS_PER_SEC ;
-    while (clock() < endwait) {}
+    endwait = clock () + (sec) * CLOCKS_PER_SEC ;
+    while (clock() < endwait) {
+    }
 }
 /************/
 
