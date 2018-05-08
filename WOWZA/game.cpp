@@ -109,18 +109,17 @@ void game::collisionCheck(){
 /************/
 void game::powerCheck(){
     if(powerSpawn == 0){
-        //power =new shape("power.png", -0.5,-0.5,.25,.25,0);
         powerSpawn=1;
-        //powerTimer(3);
-        //power->draw();
+        //delete power;
     }
         power->draw();
-    if (pong->getXPos() == power->getXPos() || pong->getYPos() == power->getYPos()){
+    if(power->contains(pong->getXPos(), pong->getYPos())){
         pong->setSpeedo(1.5);
         powerSpawn=0;
         pong->setSpeed();
         delete power;
     }
+
 }
 
 void game::powerTimer(int sec) {
@@ -194,17 +193,17 @@ void game::onClickStart(unsigned char key){
 }
 //TODO::Add some end game screen
 void game::endGame(){
-  if(AI==1 && constBar->getScore()==3){
+  if(AI==1 && constBar->getScore()==4){
     std::cout<<"Player 2 won"<<std::endl;
     this->~game();
     exit(0);
   }
-  else if(AI ==2 && play2->getScore()==3){
+  else if(AI ==2 && play2->getScore()==4){
     std::cout<<"Player 2 won"<<std::endl;
     this->~game();
     exit(0);
   }
-  else if(play1->getScore()==3){
+  else if(play1->getScore()==4){
     std::cout<<"Player 1 won"<<std::endl;
     this->~game();
     exit(0);
