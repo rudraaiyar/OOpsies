@@ -11,7 +11,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
     mx = 0.0;
     my = 0.0;
 
-    g=new game();
+    g=new game(); //THIS IS THE KEY TO LIFE
   }
 
 void App::draw() {
@@ -69,10 +69,13 @@ void App::keyPress(unsigned char key) {
   //use key to see how play1 should move if at all
     g->onClickStart(key);
     g->movePlay1(key);
+    
     if (key == 27){
         // Exit the app when Esc key is pressed
         delete g;
         exit(0);
     }
+    
+
     redraw();
 }

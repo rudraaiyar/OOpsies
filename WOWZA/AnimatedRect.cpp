@@ -1,4 +1,5 @@
 #include "AnimatedRect.h"
+//same as angelo almost
 
 AnimatedRect::AnimatedRect (const char* map_filename, int rows, int cols, float x=0, float y=0, float w=0.5, float h=0.5){
 
@@ -118,6 +119,6 @@ void AnimatedRect::stop(){
     animating = false;
 }
 
-bool AnimatedRect::started(){
+bool AnimatedRect::started(){ //this starts and ye
     return start;
 }

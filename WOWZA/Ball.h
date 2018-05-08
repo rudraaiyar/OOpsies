@@ -1,6 +1,9 @@
 #ifndef Ball_h
 #define Ball_h
 
+
+//this is also bby of shape
+
 #include "shape.h"
 
 class Ball: public shape {
@@ -15,14 +18,14 @@ class Ball: public shape {
 public:
     Ball(int,const char*,float,float,float,float,bool);
     ~Ball();
-    void setVel();
-    void setSpeed();
+    void setVel(); //sets velocity
+    void setSpeed(); //set speeeeed
     void setSpeedo(float sec);
-    void moveBall();
-    int getSpeed() const;
-    void resetBall();
-    void animate();
-    void flipXVel();
+    void moveBall(); //move me
+    int getSpeed() const; //getty me
+    void resetBall(); //resets to og position
+    void animate(); //makes me look good
+    void flipXVel(); //flippy flop
     void flipYVel();
 
 };
