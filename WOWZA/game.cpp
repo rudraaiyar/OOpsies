@@ -152,6 +152,7 @@ void game::powerCheck(){ //this boy deals with tide pods and tells us whether we
 
 }
 
+
 void game::powerTimer(int sec) { //this boy ruined our game, but in progress
     clock_t endwait;
     endwait = clock () + (sec) * CLOCKS_PER_SEC ;
