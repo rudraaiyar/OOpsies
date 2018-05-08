@@ -20,6 +20,10 @@ Ball::Ball(int speed, const char*filename,float x,float y, float w, float h, boo
 }
 Ball::~Ball(){
 }
+
+void Ball::setSpeedo(float sec){
+    vel=(sec * 0.02)+0.04;
+}
 void Ball::setSpeed(){
   vel=(speed * 0.02)+0.04;
 }
@@ -50,7 +54,6 @@ void Ball::animate()
   draw();
   moveBall();
 }
-
 
 void Ball::flipXVel(){
   velX*=-1;

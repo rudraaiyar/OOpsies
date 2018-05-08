@@ -20,6 +20,7 @@ class game{
     bool start;
     bool AIVal;
     bool levelVal;
+    bool powerSpawn;
 public:
     game();
     ~game();

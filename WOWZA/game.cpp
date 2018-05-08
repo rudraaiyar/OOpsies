@@ -1,4 +1,7 @@
 #include "game.h"
+#include "time.h"
+#include <iostream>
+
 
 game::game(){
   power =new shape("power.png", 0,0,.25,.25,0);
@@ -9,6 +12,7 @@ game::game(){
   start=0;
   AIVal=0;
   levelVal=0;
+  powerSpawn=0;
   startScreen = new shape("instruction_text.png",-1,0.5,2,1,0);
 
 }
@@ -23,8 +27,9 @@ game::~game(){
   delete pong;
   delete background;
 
-  delete startScreen;
-  delete power;
+  if(powerSpawn == 1){
+    delete power;
+  }
   delete p1score;
   delete p2score;
 }
@@ -103,17 +108,26 @@ void game::collisionCheck(){
 }
 /************/
 void game::powerCheck(){
+    if(powerSpawn == 0){
+        //power =new shape("power.png", -0.5,-0.5,.25,.25,0);
+        powerSpawn=1;
+        //powerTimer(3);
+        //power->draw();
+    }
+        power->draw();
     if (pong->getXPos() == power->getXPos() || pong->getYPos() == power->getYPos()){
+        pong->setSpeedo(1.5);
+        powerSpawn=0;
         pong->setSpeed();
         delete power;
-        draw();
     }
 }
 
 void game::powerTimer(int sec) {
     clock_t endwait;
-    endwait = clock () + sec * CLOCKS_PER_SEC ;
-    while (clock() < endwait) {}
+    endwait = clock () + (sec) * CLOCKS_PER_SEC ;
+    while (clock() < endwait) {
+    }
 }
 /************/
 
