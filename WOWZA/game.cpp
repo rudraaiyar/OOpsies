@@ -49,12 +49,11 @@ void game::draw(){
   else{
   play1->draw();
     if(play1->getScore() > 0){
-      //p1score->animate();
+      p1score->animate();
       p1score->draw();
     }
-    //TODO:: FIX ONLY ONE EXISTS AT A TIME
-    if(play2->getScore() > 0 || constBar->getScore() > 0){
-      //p2score->animate();
+    if((AI==2 && play2->getScore() > 0) || (AI==1 && constBar->getScore() > 0)){
+      p2score->animate();
       p2score->draw();
     }
     if (AI==1) {
