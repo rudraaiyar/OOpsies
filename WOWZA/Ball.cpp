@@ -20,6 +20,10 @@ Ball::Ball(int speed, const char*filename,float x,float y, float w, float h, boo
 }
 Ball::~Ball(){
 }
+
+void Ball::setSpeedo(float sec){
+    vel=(sec * 0.02)+0.04;
+}
 void Ball::setSpeed(){
   vel=(speed * 0.02)+0.04;
 }
@@ -51,7 +55,6 @@ void Ball::animate()
   moveBall();
 }
 
-
 void Ball::flipXVel(){
   velX*=-1;
 }
@@ -59,20 +62,3 @@ void Ball::flipYVel(){
   velY*=-1;
 }
 
-void Ball::powerUp(){
-	powerTimer(15);
-	//draw(0.09);
-	powerTimer(5);
-	draw();
-	powerTimer(15);
-	//draw(0.03);
-	powerTimer(5);
-	draw();
-	powerUp();
-}
-
-void Ball::powerTimer(int sec) {
-  clock_t endwait;
-  endwait = clock () + sec * CLOCKS_PER_SEC ;
-  while (clock() < endwait) {}
-}

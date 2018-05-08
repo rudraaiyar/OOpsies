@@ -17,15 +17,14 @@ public:
     ~Ball();
     void setVel();
     void setSpeed();
+    void setSpeedo(float sec);
     void moveBall();
     int getSpeed() const;
     void resetBall();
     void animate();
     void flipXVel();
     void flipYVel();
-	void powerUp();
-	void powerTimer(int sec);
-	//void draw(float r);
+
 };
 
 #endif
