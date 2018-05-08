@@ -16,8 +16,7 @@ public:
     Ball(int,const char*,float,float,float,float,bool);
     ~Ball();
     void setVel();
-    void setSpeed();
-    void setSpeedo(float sec);
+    void speedUp();
     void moveBall();
     int getSpeed() const;
     void resetBall();

@@ -14,7 +14,7 @@ game::game(){
   start=0;
   AIVal=0;
   levelVal=0;
-  powerSpawn=0;
+  powerSpawn=1;
   startScreen = new shape("instruction_text.png",-1,0.5,2,1,0);
 
 }
@@ -112,14 +112,14 @@ void game::collisionCheck(){
 void game::powerCheck(){
     if(powerSpawn == 0){
         powerSpawn=1;
-        power = new shape("power.png", ((rand() % 200)/100 - 1),((rand() % 200)/100 - 1),.25,.25,0);
+        power = new shape("power.png", ((rand() % 190)/100.0 - 0.9),((rand() % 190)/100.0 - 0.9),.2,.2,0);
         //delete power;
     }
         power->draw();
     if(power->contains(pong->getXPos(), pong->getYPos())){
-        pong->setSpeedo(pong->getSpeed()+0.5);
+        pong->speedUp();
         powerSpawn=0;
-        pong->setSpeed();
+        //pong->setSpeed();
         delete power;
     }
 
