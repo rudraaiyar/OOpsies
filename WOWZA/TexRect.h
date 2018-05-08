@@ -12,6 +12,7 @@
 #include <SOIL.h>
 #endif
 
+
 class TexRect {
 public:
     float x;
@@ -22,23 +23,24 @@ public:
 
 
     TexRect (const char*, float, float, float, float);
-    
+
     void draw();
-    
+
     bool contains(float, float);
-    
+
     void moveUp(float rate=0.01);
     void moveDown(float rate=0.01);
     void moveLeft(float rate=0.01);
     void moveRight(float rate=0.01);
-    
+
     void jump();
-    
+
     bool rising;
     bool movingLeft;
-   
+
     float xinc;
     float yinc;
+
 };
 
 #endif

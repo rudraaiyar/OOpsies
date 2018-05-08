@@ -9,22 +9,20 @@
 #ifndef Bar_hpp
 #define Bar_hpp
 
-#include <stdio.h>
 #include <iostream>
 #include "shape.h"
 
 class Bar : public shape{
     //four float values
-public:
-    float width=.1;
-    float height;
     int score;
+public:
 
 public:
-    Bar(float x1,float y1, float h);
+    Bar(const char*, float, float, float, float, bool);
+    ~Bar();
     //contains which checks if in or nah
     void updateScore();
-    void draw();
+    //void draw();
     void moveU();
     void moveD();
     float getWidth() const;

@@ -1,14 +1,3 @@
-#if defined WIN32
-#include <freeglut.h>
-#include "../windows/SOIL.h"
-#elif defined __APPLE__
-#include <GLUT/glut.h>
-#include <SOIL.h>
-#else
-#include <GL/freeglut.h>
-#include <SOIL.h>
-#endif
-
 #include "game.h"
 
 game::game(int AI, int level){
@@ -16,20 +5,19 @@ game::game(int AI, int level){
   if (level>3 || level<1 || AI >2 || AI < 1){
     exit(0);
   }
-  play1 = new Bar(-0.95, 0.0,0.3);
+  play1 = new Bar("Plank.png",-0.95, 0.0, 0.1, 0.3,0);
   if(AI==2){
-    play2 = new Bar(0.8, 0.0,0.3);
+    play2 = new Bar("Plank.png",0.8, 0.0,0.1,0.3,1);
   }
   else if(AI==1){
-    //0.9,1,2
-    constBar = new Bar(0.8, 0.0, 0.3);
+
+    constBar = new Bar("Plank.png",0.8, 0.0,0.1,0.3,1);
   }
-  pong = new Ball(level);
+  pong = new Ball(level,"ball.png", 0.0,0.0, 0.07, 0.07,0);
   this->AI=AI;
   this->level=level;
 
 
-  //bg = new TexRect("grid.bmp", 1, 1, -1, 1, 5, 3);
 
 }
 game::~game(){
@@ -40,7 +28,6 @@ game::~game(){
   else if(AI==1){
     delete constBar;
   }
-  //delete bg;
   delete pong;
 }
 
@@ -62,7 +49,7 @@ void game::draw(){
     play2->draw();
   }
   //bg->draw();
-  pong->draw();
+  pong->animate();
   //since ball will always be called we do a collisionCheck at the end
   collisionCheck();
 }
@@ -74,11 +61,6 @@ void game::collisionCheck(){
   (AI==1 && constBar->contains(pong->getXPos(), pong->getYPos()))){
     pong->flipXVel();
   }
-  //comment out once scoring system is made/ball respawn is done
-  /*if(pong->getXPos() >=1 || pong->getXPos()<=-1){
-      pong->flipXVel();
-  }
-*/
   else if(pong->getXPos() <=-1 ){
     if(AI==2){
       play2->updateScore();

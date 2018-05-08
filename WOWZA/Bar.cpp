@@ -1,36 +1,16 @@
-  #if defined WIN32
-#include <freeglut.h>
-#elif defined __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/freeglut.h>
-#endif
-
 #include "Bar.hpp"
 
 using namespace std;
 
-Bar::Bar(float x1,float y1, float h) {
-    x = x1;
-    y = y1;
-    height = h;
+Bar::Bar(const char* filename, float x1,float y1, float w, float h, bool direction=0)
+  :shape(filename,x1,y1,w,h,direction) {
     score=0;
 }
-
+Bar::~Bar(){
+  
+}
 void Bar::updateScore(){
   score++;
-}
-void Bar::draw()
-{
-    glColor3d(1.0, 1.0, 1.0);
-    glBegin(GL_POLYGON);
-    glVertex2f(x, y);
-    glVertex2f(x+width, y);
-    glVertex2f(x+width, y-height);
-    glVertex2f(x, y-height);
-
-    glEnd();
-
 }
 
 void Bar::moveU()
@@ -42,22 +22,22 @@ void Bar::moveU()
 
 void Bar::moveD()
 {
-    if (y-height<= -1.0)
+    if (y-h<= -1.0)
         y-=0;
     else y-=.18;
 }
 
 float Bar::getWidth() const{
-  return width;
+  return w;
 }
 float Bar::getHeight() const{
-  return height;
+  return h;
 }
 int Bar::getScore() const{
   return score;
 }
 bool Bar::contains(float mx,float my){
-  if((mx >= x && mx <= x+width) && (my <= y && my >= y - height)){
+  if((mx >= x && mx <= x+w) && (my <= y && my >= y - h)){
       return true;
   }
   else{

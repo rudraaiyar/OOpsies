@@ -1,8 +1,6 @@
 #ifndef Ball_h
 #define Ball_h
 
-//#include "TexRect.h"
-#include "GlutApp.h"
 #include "shape.h"
 
 class Ball: public shape {
@@ -14,13 +12,14 @@ class Ball: public shape {
 
 
 public:
-    Ball(int);
+    Ball(int,const char*,float,float,float,float,bool);
+    ~Ball();
     void setVel();
     void setSpeed();
     void moveBall();
     int getSpeed() const;
     void resetBall();
-    void draw();
+    void animate();
     void flipXVel();
     void flipYVel();
 };
