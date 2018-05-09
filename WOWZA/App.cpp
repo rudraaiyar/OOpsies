@@ -56,7 +56,7 @@ void App::mouseDrag(float x, float y){
 
 void App::specialKeyPress(int key){
     //use key to see how play2 should move if at all
-    g->movePlay2(key);
+    g->movePlay1(key);
     redraw();
 }
 //This funciton is called all the time, which is why ball is able to move
@@ -68,7 +68,7 @@ void App::idle(){
 void App::keyPress(unsigned char key) {
   //use key to see how play1 should move if at all
     g->onClickStart(key);
-    g->movePlay1(key);
+    g->movePlay2(key);
 	if(key == 112){
 		g->powerTimer(1);
 	}
@@ -80,7 +80,7 @@ void App::keyPress(unsigned char key) {
         delete g;
         exit(0);
     }
-    
+
 
     redraw();
 }

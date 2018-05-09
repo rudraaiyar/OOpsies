@@ -61,19 +61,16 @@ void game::draw(){ //this boy draws our scene
 
     if(gameOver){
 	if(play1->getScore() > play2->getScore()){
-           p1win->draw();
+     p1win->draw();
 	   powerTimer(3);
-	   //this->~game();
 	}
 	else if(play1->getScore() > constBar->getScore()){
-           p1win->draw();
+     p1win->draw();
 	   powerTimer(3);
-	   //this->~game();
 	}
 	else{
 	   p2win->draw();
 	   powerTimer(3);
-	   //this->~game();
 	}
     }
 
@@ -140,13 +137,11 @@ void game::powerCheck(){ //this boy deals with tide pods and tells us whether we
     if(powerSpawn == 0){
         powerSpawn=1;
         power = new shape("power.png", ((rand() % 190)/100.0 - 0.9),((rand() % 190)/100.0 - 0.9),.2,.2,0);
-        //delete power;
     }
         power->draw();
     if(power->contains(pong->getXPos(), pong->getYPos())){
         pong->speedUp();
         powerSpawn=0;
-        //pong->setSpeed();
         delete power;
     }
 
@@ -161,20 +156,20 @@ void game::powerTimer(int sec) { //this boy ruined our game, but in progress
 }
 /************/
 
-void game::movePlay2(unsigned char key){ //move me with special keys upsie and downsies
+void game::movePlay1(int key){ //move me with special keys upsie and downsies
   if(key == GLUT_KEY_UP){
-    play2->moveU();
-  }
-  else if(key == GLUT_KEY_DOWN){
-    play2->moveD();
-  }
-}
-void game::movePlay1(int key){
-  if(key == 119){
     play1->moveU();
   }
-  else if(key == 115){
+  else if(key == GLUT_KEY_DOWN){
     play1->moveD();
+  }
+}
+void game::movePlay2(unsigned char key){
+  if(key == 119){
+    play2->moveU();
+  }
+  else if(key == 115){
+    play2->moveD();
   }
 }
 void game::autoPlay2Move(){ //this boy fancy and he do the ai, but he a winner all the time
@@ -220,7 +215,6 @@ void game::onClickStart(unsigned char key){ //helps with user input
     }
   }
 }
-//TODO::Add some end game screen
 void game::endGame(){ //this boy determines who wins the lottery and tells who the winner is
   if(AI==1 && constBar->getScore()==4){
     gameOver = true;

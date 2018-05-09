@@ -36,7 +36,6 @@ void Ball::speedUp(){
       velY-=0.001;
     }
 }
-//Ball(float x, float y);
 void Ball::setVel(){
     velX=vel*cos((angle * PI /180.0));
     velY=vel*sin((angle * PI /180.0));
