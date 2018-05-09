@@ -1,0 +1,7 @@
+1) Type "make" to compile code
+2) Type "./glutapp" to run
+3) Type 1 for single player or 2 for 2 player mode
+4) Type 1, 2, or 3 to choose which speed to play at
+5) player1: use the up and down key to move
+6) player2: use "w" to go up and "s" to go down
+7) click esc to exit game either durring the game or when it game is over
