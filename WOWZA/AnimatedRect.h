@@ -12,37 +12,33 @@
 #include <SOIL.h>
 #endif
 
-class AnimatedRect {
-    float x;
-    float y;
-    float w;
-    float h;
-    GLuint texture_map_id;
-    
+#include "shape.h"
+class AnimatedRect : public shape{
+
     int rows;
     int cols;
-    
+
     int curr_row;
     int curr_col;
-    
+
     bool complete;
     bool animating;
     bool start;
 public:
     AnimatedRect (const char*, int, int, float, float, float, float);
-    
+
     bool done();
-    
+
     void draw();
-    
+
     void advance();
-    
+
     void incY();
-    
+
     void reset();
-    
+
     void animate();
-    
+
     void stop();
 
     bool started(); //this is the only addition we did to this file

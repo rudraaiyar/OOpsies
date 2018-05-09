@@ -60,11 +60,11 @@ void game::draw(){ //this boy draws our scene
   else{
 
     if(gameOver){
-	if(play1->getScore() > play2->getScore()){
+	if(AI == 2 && (play1->getScore() > play2->getScore())){
      p1win->draw();
 	   powerTimer(3);
 	}
-	else if(play1->getScore() > constBar->getScore()){
+	else if(AI ==1 && (play1->getScore() > constBar->getScore())){
      p1win->draw();
 	   powerTimer(3);
 	}

@@ -1,34 +1,11 @@
 #include "AnimatedRect.h"
 //same as angelo almost
 
-AnimatedRect::AnimatedRect (const char* map_filename, int rows, int cols, float x=0, float y=0, float w=0.5, float h=0.5){
-
-    glClearColor (0.0, 0.0, 0.0, 0.0);
-    glShadeModel(GL_FLAT);
-    glEnable(GL_DEPTH_TEST);
-
-    texture_map_id = SOIL_load_OGL_texture
-    (
-     map_filename,
-     SOIL_LOAD_AUTO,
-     SOIL_CREATE_NEW_ID,
-     SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
-     );
-
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-
-    glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+AnimatedRect::AnimatedRect (const char* map_filename, int rows, int cols, float x=0, float y=0, float w=0.5, float h=0.5)
+  :shape(map_filename,x,y,w,h,0){
 
     this->rows = rows;
     this->cols = cols;
-
-    this->x = x;
-    this->y = y;
-    this->w = w;
-    this->h = h;
 
     curr_row = 1;
     curr_col = 1;
@@ -45,7 +22,7 @@ bool AnimatedRect::done() {
 
 void AnimatedRect::draw(){
     if (animating){
-        glBindTexture( GL_TEXTURE_2D, texture_map_id );
+        glBindTexture( GL_TEXTURE_2D, texture_id );
         glEnable(GL_TEXTURE_2D);
         glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
 

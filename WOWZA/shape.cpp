@@ -26,7 +26,7 @@ shape::shape(const char* filename, float x, float y, float w, float h, bool dire
   this->direction=direction;
 }
 shape::~shape(){ //deconstorutretertertre
-  
+
 }
 void shape::setXPos(float xPos){
   this->x=x;

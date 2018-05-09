@@ -32,7 +32,7 @@ public:
   void setYPos(float);
   float getXPos()const;
   float getYPos()const;
-  void draw();
+  virtual void draw();
   bool contains(float, float); //checks whether or not obj hits thingy
 
 };
