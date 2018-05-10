@@ -63,6 +63,11 @@ void shape::draw(){ //hwo we draw
   glDisable(GL_TEXTURE_2D);
 }
 
+void shape::changePos(){
+  x=((rand() % 190)/100.0 - 0.9);
+  y=((rand() % 190)/100.0 - 0.9);
+}
+
 bool shape::contains(float mx,float my){
     if((mx >= x && mx <= x+w) && (my <= y && my >= y - h)){
         return true;

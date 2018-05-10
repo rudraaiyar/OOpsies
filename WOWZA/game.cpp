@@ -6,7 +6,7 @@
 
 game::game(){ //this boy helps us init the stuff
 
-  power =new shape("power.png", 0,0,.25,.25,0);
+  power = new shape("power.png", 0,0,.25,.25,0);
 
   p1score = new AnimatedRect("numbers-600.png", 3, 3, -0.2, 1, 0.2, 0.2);
 
@@ -14,8 +14,6 @@ game::game(){ //this boy helps us init the stuff
   start=0;
   AIVal=0;
   levelVal=0;
-
-  powerSpawn=0;
   gameOver=0;
 
   powerSpawn=1;
@@ -37,6 +35,7 @@ game::~game(){ //this boy helps us prevent memory leaks
   delete background;
 
   if(powerSpawn == 1){
+    powerSpawn=0;
     delete power;
   }
   delete p1score;
@@ -60,18 +59,18 @@ void game::draw(){ //this boy draws our scene
   else{
 
     if(gameOver){
-	if(AI == 2 && (play1->getScore() > play2->getScore())){
-     p1win->draw();
-	   powerTimer(3);
-	}
-	else if(AI ==1 && (play1->getScore() > constBar->getScore())){
-     p1win->draw();
-	   powerTimer(3);
-	}
-	else{
-	   p2win->draw();
-	   powerTimer(3);
-	}
+	     if(AI == 2 && (play1->getScore() > play2->getScore())){
+         p1win->draw();
+	       powerTimer(3);
+	      }
+	      else if(AI ==1 && (play1->getScore() > constBar->getScore())){
+          p1win->draw();
+	        powerTimer(3);
+	       }
+	       else{
+	          p2win->draw();
+	          powerTimer(3);
+	         }
     }
 
     if(play1->getScore() > 0){
@@ -86,7 +85,7 @@ void game::draw(){ //this boy draws our scene
     if (AI==1) {
       this->autoPlay2Move();
       constBar->draw();
-    }else if(AI ==2){
+    }else if(AI == 2){
       play2->draw();
     }
     power->draw();
@@ -134,15 +133,19 @@ void game::collisionCheck(){ //this boy helps us find which playa gonna make ban
 }
 /************/
 void game::powerCheck(){ //this boy deals with tide pods and tells us whether we get the goods or nah
-    if(powerSpawn == 0){
+    /*if(powerSpawn == 0){
         powerSpawn=1;
         power = new shape("power.png", ((rand() % 190)/100.0 - 0.9),((rand() % 190)/100.0 - 0.9),.2,.2,0);
     }
+
+    */
         power->draw();
     if(power->contains(pong->getXPos(), pong->getYPos())){
+        //std::cout<<"why break?\n";
         pong->speedUp();
-        powerSpawn=0;
-        delete power;
+        //delete power;
+        //powerSpawn=0;
+        power->changePos();
     }
 
 }
