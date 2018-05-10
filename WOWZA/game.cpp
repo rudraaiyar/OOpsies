@@ -133,7 +133,7 @@ void game::collisionCheck(){ //this boy helps us find which playa gonna make ban
 }
 /************/
 void game::powerCheck(){ //this boy deals with tide pods and tells us whether we get the goods or nah
-        power->draw();
+    power->draw();
     if(power->contains(pong->getXPos(), pong->getYPos())){
         pong->speedUp();
         power->changePos();
