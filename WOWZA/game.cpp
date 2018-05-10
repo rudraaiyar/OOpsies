@@ -133,18 +133,9 @@ void game::collisionCheck(){ //this boy helps us find which playa gonna make ban
 }
 /************/
 void game::powerCheck(){ //this boy deals with tide pods and tells us whether we get the goods or nah
-    /*if(powerSpawn == 0){
-        powerSpawn=1;
-        power = new shape("power.png", ((rand() % 190)/100.0 - 0.9),((rand() % 190)/100.0 - 0.9),.2,.2,0);
-    }
-
-    */
         power->draw();
     if(power->contains(pong->getXPos(), pong->getYPos())){
-        //std::cout<<"why break?\n";
         pong->speedUp();
-        //delete power;
-        //powerSpawn=0;
         power->changePos();
     }
 
